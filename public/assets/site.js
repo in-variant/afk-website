@@ -189,5 +189,22 @@
     onView(mgr,runMgr,.3);
   }
 
+  /* privacy demo: scan, sheet seen, WhatsApp never seen, capy declines */
+  var pdemo=document.getElementById('pdemo');
+  if(pdemo){
+    var pQ=document.getElementById('pQ'),pT=document.getElementById('pT'),pA=document.getElementById('pA'),pt=[];
+    function runP(){
+      pt.forEach(clearTimeout);pt=[];pdemo.classList.remove('priv','scanning');
+      [pQ,pA].forEach(function(m){m.classList.remove('show')});pT.classList.remove('show');pT.style.display='none';pA.style.display='none';
+      pt.push(setTimeout(function(){pdemo.classList.add('scanning')},400));
+      pt.push(setTimeout(function(){pdemo.classList.remove('scanning');pdemo.classList.add('priv')},3700));
+      pt.push(setTimeout(function(){pQ.classList.add('show')},5000));
+      pt.push(setTimeout(function(){pT.style.display='flex';requestAnimationFrame(function(){pT.classList.add('show')})},6000));
+      pt.push(setTimeout(function(){pT.style.display='none';pA.style.display='flex';requestAnimationFrame(function(){pA.classList.add('show')})},7700));
+      pt.push(setTimeout(runP,15000));
+    }
+    onView(pdemo,runP,.3);
+  }
+
   if(reduce){document.querySelectorAll('.msg,.notes li,.ctxbox li,.und,.pull span,.rep').forEach(function(e){e.classList.add('show')})}
 })();
