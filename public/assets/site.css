@@ -3,7 +3,7 @@
 @font-face{font-family:'Geist Mono';src:url('/kit/fonts/GeistMono-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
 @font-face{font-family:'JetBrains Mono';src:url('/kit/fonts/JetBrainsMono-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
 
-/* Invariant brand faces and colours (web-ui kit); rounded geometry for AFK */
+/* brand faces and colours, rounded geometry */
 :root{
   --bg:#FFFDF8;--card:#FFFFFF;--ink:#303030;--soft:rgba(48,48,48,.64);--mute:rgba(48,48,48,.4);
   --navy:#123C73;--navy-h:#0D2E5A;--orange:#FB4D03;--blue:#022FDB;--blue-tint:#EEF2FF;
@@ -637,3 +637,66 @@ table.sheet{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;
 
 .head .lead,.phead .lead,.feat .lead,.role .lead{max-width:620px}
 .hero .lead{max-width:600px}
+
+.onreq{margin-top:auto;text-align:center;font-family:var(--jmono);font-size:12px;text-transform:uppercase;color:var(--soft);padding:12px;border-radius:var(--pill);background:var(--row)}
+
+/* arc carousel: apps glide along a curve, the focused one pours into the chat */
+.arc{position:relative;width:100%;max-width:520px;aspect-ratio:1/1}
+.arcicons .ai{position:absolute;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:var(--card);box-shadow:var(--sh),0 0 0 1px var(--hair);display:grid;place-items:center;transition:left .9s cubic-bezier(.5,0,.2,1),top .9s cubic-bezier(.5,0,.2,1),transform .9s cubic-bezier(.5,0,.2,1),opacity .9s}
+.arcicons .ai img{width:28px;height:28px}
+.focus{position:absolute;left:84%;top:52%;width:132px;height:132px;margin:-66px 0 0 -66px;border-radius:50%;background:var(--card);box-shadow:0 0 0 6px #E7F4EC,0 0 0 7px #CFE6D8,var(--sh);display:grid;place-items:center;z-index:3}
+.focus img{width:58px;height:58px;transition:transform .35s cubic-bezier(.3,1.6,.5,1),opacity .2s}
+.focus.swap img{transform:scale(.4);opacity:0}
+.dash{position:absolute;inset:0;width:100%;height:100%;z-index:1;overflow:visible}
+.dash path{fill:none;stroke:#9DB6FF;stroke-width:.5;stroke-dasharray:2 2;animation:dashflow 1s linear infinite;vector-effect:non-scaling-stroke}
+@keyframes dashflow{to{stroke-dashoffset:-4}}
+.arccard{position:absolute;left:0;right:22%;bottom:2%;background:var(--card);border-radius:18px;box-shadow:var(--sh),0 0 0 1px var(--hair);padding:14px 16px;z-index:2}
+.arcq{font-size:14px;background:var(--row);border-radius:12px 12px 4px 12px;padding:8px 12px;display:inline-block;margin-bottom:10px}
+.arcread{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--soft);margin-bottom:6px}
+.arcread .sp{width:12px;height:12px;border-radius:50%;border:2px solid var(--hair);border-top-color:var(--blue);animation:spin .8s linear infinite}
+#arcAns{font-size:14.5px;transition:opacity .3s}
+#arcAns.fade{opacity:0}
+
+/* meetings: gather, notes, cursor clicks through tabs */
+.mbody{position:relative;min-height:270px}
+.mview{position:absolute;inset:16px 18px;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s;pointer-events:none}
+.mview.on{opacity:1;transform:none;pointer-events:auto}
+.mgather .think{margin-bottom:16px}
+.msum p{font-size:14px;color:var(--soft);margin-bottom:10px}
+.msum .mh{font-family:var(--jmono);font-size:11px;text-transform:uppercase;color:var(--green);margin-bottom:4px}
+.mtabs span{transition:background .25s,color .25s}
+.mcur{position:absolute;left:70%;top:85%;width:22px;height:22px;z-index:4;transition:left .8s cubic-bezier(.5,0,.2,1),top .8s cubic-bezier(.5,0,.2,1);pointer-events:none}
+.mcur svg{width:22px;height:22px;fill:#fff;stroke:var(--ink);stroke-width:1.4;filter:drop-shadow(0 2px 3px rgba(0,0,0,.2))}
+.mcur.click svg{animation:clickp .3s}
+@keyframes clickp{50%{transform:scale(.8)}}
+
+/* stand-up: running, items drop in, collapse to done */
+.sicon{width:36px;height:36px;border-radius:10px;background:var(--row);display:grid;place-items:center;overflow:hidden}
+.sicon img{width:28px;height:34px;object-fit:contain}
+.srow{display:flex;justify-content:space-between;align-items:center;padding-bottom:8px;border-bottom:1px solid var(--hair-g)}
+.adding{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--green)}
+.adding i{width:7px;height:7px;border-radius:50%;background:var(--green);animation:ping 1.6s infinite}
+#stand .bd{position:relative;min-height:280px}
+.slive,.sdone{position:absolute;inset:16px 18px;transition:opacity .45s,transform .45s}
+.slive{opacity:0}.slive.on{opacity:1}
+.slive .todo li{opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s,background .3s}
+.slive .todo li.show{opacity:1;transform:none}
+.sdone{display:grid;gap:10px;align-content:start;opacity:0;transform:translateY(10px);pointer-events:none}
+.sdone.on{opacity:1;transform:none}
+.dcard{display:flex;align-items:center;gap:12px;padding:14px;border-radius:14px;box-shadow:0 0 0 1px var(--hair);background:var(--card);opacity:0;transform:scale(.97);transition:opacity .35s,transform .35s}
+.sdone.on .dcard{opacity:1;transform:none}
+.sdone.on .dcard:nth-child(2){transition-delay:.15s}.sdone.on .dcard:nth-child(3){transition-delay:.3s}
+.dcard img{width:18px;height:18px}
+.dcard b{font-weight:500;font-size:14.5px}
+.dcard span{margin-left:auto;color:var(--green)}
+#stStatus{transition:background .3s,color .3s}
+@media(max-width:700px){.focus{width:96px;height:96px;margin:-48px 0 0 -48px}.focus img{width:42px;height:42px}.arcicons .ai{width:50px;height:50px;margin:-25px 0 0 -25px}.arcicons .ai img{width:22px;height:22px}}
+
+/* hero stage now holds the How it works animation */
+.stage .tsteps{margin-bottom:16px}
+.stage .tstage{text-align:left}
+.stage .tsteps span{background:rgba(255,255,255,.9)}
+/* the Ask / Stand-ups / Handover demo lives on Use cases */
+.stage.demo{margin-top:20px;padding-top:30px}
+
+.scenes{min-height:390px}

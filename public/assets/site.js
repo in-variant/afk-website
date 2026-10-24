@@ -101,19 +101,21 @@
   var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){if(wires.innerHTML||innerWidth>=1000)drawWires()},150)});
   }
 
-  onView(document.getElementById('meet'),function(){seq([].slice.call(document.querySelectorAll('#notes li')),'show',650,300)});
 
-  onView(document.getElementById('stand'),function(){
-    var li=document.querySelectorAll('#stand .todo li');
-    seq([li[4],li[0],li[1],li[2]],'done',800,600);
-  });
 
-  onView(document.getElementById('draft'),function(){
+  var draftEl=document.getElementById('draft');
+  function runDraft(){
+    var dp=document.getElementById('dPull'),doc0=document.getElementById('dDoc'),on0=document.getElementById('dOn');
+    doc0.classList.remove('show');on0.classList.remove('show');dp.innerHTML='';document.getElementById('dTxt').textContent='';
+    draftGo();setTimeout(runDraft,14000);
+  }
+  function draftGo(){
     var t=[],on=document.getElementById('dOn'),doc=document.getElementById('dDoc'),txt=document.getElementById('dTxt');
     t.push(setTimeout(function(){on.classList.add('show')},300));
     var end=chips(document.getElementById('dPull'),[["icons/gmail.svg","Client thread"],["icons/googlecalendar.svg","Product sync"],["icons/googledocs.svg","Launch plan"]],'',700,450,t);
     setTimeout(function(){doc.classList.add('show');type(txt,"Hi Dana,\nConfirming the launch is now 12 May. We moved it two weeks to finish packaging with our new supplier. Your onboarding call stays on 14 May, and I'll send the updated plan by Friday.\nBest,\nMaya",14)},end+300);
-  });
+  };
+  if(draftEl)onView(draftEl,runDraft,.3);
 
   onView(document.getElementById('hand'),function(){seq([].slice.call(document.querySelectorAll('#hand .msg')),'show',900,300)});
 
@@ -261,6 +263,81 @@
     measure();frame();
     addEventListener('scroll',req,{passive:true});
     addEventListener('resize',function(){measure();req()});
+  }
+
+  /* arc: apps glide along a curve; the focused app feeds the chat */
+  var arc=document.getElementById('arc');
+  if(arc){
+    var ais=[].slice.call(arc.querySelectorAll('.ai')),focus=arc.querySelector('.focus'),fimg=document.getElementById('arcFocus'),
+        aRead=document.getElementById('arcRead'),aAns=document.getElementById('arcAns'),aq=arc.querySelector('.arcq'),ac=0;
+    var data=[
+      ['icons/gmail.svg','Reading Gmail','Did Dana reply about the quote?','Yes, this morning. She accepted $18,400 and asked to start on 2 June.'],
+      ['icons/googlesheets.svg','Reading Sheets','What was Q3 revenue?','$482,300, up 12% on Q2. West was the largest region.'],
+      ['icons/slack.svg','Reading Slack','Which vendor did we pick?','Vendor B, agreed in #ops on Thursday for its shorter lead time.'],
+      ['icons/notion.svg','Reading Notion','Where are the research notes?','In Customer research, updated Monday with five new interviews.'],
+      ['icons/googlecalendar.svg','Reading Calendar','When is the supplier call?','Tomorrow at 10:30 with their operations lead.'],
+      ['icons/linear.svg','Reading Linear','Is the pricing page done?','Yes, Sam closed it Friday. It goes live Tuesday.']
+    ];
+    var slots=[[10,14,.62,.4],[28,6,.72,.6],[47,8,.84,.85],[64,20,.95,1],[84,52,.2,0]];
+    function place(){
+      ais.forEach(function(el,k){
+        var s=(k-ac+ais.length)%ais.length,sl=slots[Math.min(s,slots.length-1)];
+        if(s>=slots.length-1)sl=s===ais.length-1?[-6,26,.5,0]:slots[slots.length-1];
+        el.style.left=sl[0]+'%';el.style.top=sl[1]+'%';el.style.transform='scale('+sl[2]+')';el.style.opacity=sl[3];
+      });
+    }
+    function tick(){
+      var d=data[(ac+4)%data.length];
+      focus.classList.add('swap');aAns.classList.add('fade');
+      setTimeout(function(){fimg.src=d[0];aRead.textContent=d[1];aq.textContent=d[2];focus.classList.remove('swap')},300);
+      setTimeout(function(){aAns.textContent=d[3];aAns.classList.remove('fade')},900);
+      ac=(ac+1)%ais.length;place();
+    }
+    ac=ais.length-4;place();
+    onView(arc,function(){tick();setInterval(tick,2600)},.3);
+  }
+
+  /* meetings: gather context, notes land, cursor clicks Summary then Actions */
+  var meet=document.getElementById('meet');
+  if(meet&&meet.querySelector('.mgather')){
+    var mv={notes:meet.querySelector('#notes'),sum:meet.querySelector('.msum'),act:meet.querySelector('.mact'),gather:meet.querySelector('.mgather')},
+        mtab=meet.querySelectorAll('.mtabs span'),cur=document.getElementById('mcur'),mt2=[];
+    function view(k){Object.keys(mv).forEach(function(x){mv[x].classList.toggle('on',x===k)})}
+    function tab(k){mtab.forEach(function(s){s.classList.toggle('on',s.dataset.t===k)})}
+    function moveTo(el){var r=el.getBoundingClientRect(),m=meet.getBoundingClientRect();cur.style.left=(r.left-m.left+r.width/2)+'px';cur.style.top=(r.top-m.top+r.height/2)+'px'}
+    function at(f,ms){mt2.push(setTimeout(f,ms))}
+    function runMeet(){
+      mt2.forEach(clearTimeout);mt2=[];tab('notes');view('gather');cur.style.left='75%';cur.style.top='88%';
+      var lis=[].slice.call(mv.notes.querySelectorAll('li'));lis.forEach(function(l){l.classList.remove('show')});
+      [].slice.call(mv.act.querySelectorAll('li')).forEach(function(l){l.classList.remove('done')});
+      at(function(){view('notes');lis.forEach(function(l,k){at(function(){l.classList.add('show')},k*380)})},1600);
+      var t=1600+lis.length*380+900;
+      at(function(){moveTo(mtab[1])},t);
+      at(function(){cur.classList.add('click');tab('sum');view('sum')},t+850);
+      at(function(){cur.classList.remove('click');moveTo(mtab[2])},t+3200);
+      at(function(){cur.classList.add('click');tab('act');view('act');
+        [].slice.call(mv.act.querySelectorAll('li')).forEach(function(l,k){at(function(){l.classList.add('done')},500+k*500)})},t+4050);
+      at(function(){cur.classList.remove('click')},t+4400);
+      at(runMeet,t+8200);
+    }
+    onView(meet,runMeet,.3);
+  }
+
+  /* stand-up: running, updates drop in, then collapse to done cards */
+  var stand=document.getElementById('stand');
+  if(stand&&document.getElementById('slive')){
+    var live=document.getElementById('slive'),done=document.getElementById('sdone'),st=document.getElementById('stStatus'),sl=[].slice.call(live.querySelectorAll('li')),stt=[];
+    function runStand(){
+      stt.forEach(clearTimeout);stt=[];
+      live.classList.add('on');done.classList.remove('on');st.textContent='Running';st.className='pill g';
+      sl.forEach(function(l){l.classList.remove('show','done')});
+      sl.forEach(function(l,k){stt.push(setTimeout(function(){l.classList.add('show')},500+k*600))});
+      sl.slice(0,3).forEach(function(l,k){stt.push(setTimeout(function(){l.classList.add('done')},500+sl.length*600+k*350))});
+      var t=500+sl.length*600+1600;
+      stt.push(setTimeout(function(){live.classList.remove('on');done.classList.add('on');st.textContent='✓ Done';st.className='pill b'},t));
+      stt.push(setTimeout(runStand,t+4200));
+    }
+    onView(stand,runStand,.3);
   }
 
   if(reduce){document.querySelectorAll('.msg,.notes li,.ctxbox li,.und,.pull span,.rep').forEach(function(e){e.classList.add('show')})}

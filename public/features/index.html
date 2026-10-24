@@ -11,7 +11,7 @@
 <link rel="icon" href="/img/capy-icon.png">
 <link rel="preload" href="/kit/fonts/D-DIN.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/kit/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css?v=8efbd35d8c">
+<link rel="stylesheet" href="/assets/site.css?v=fa511689c8">
 </head>
 <body class="page-features">
 
@@ -24,14 +24,14 @@
     <li><a href="/privacy/" data-nav="privacy">Privacy</a></li>
     <li><a href="/pricing/" data-nav="pricing">Pricing</a></li>
   </ul>
-  <a class="btn" href="mailto:pranav@invariant-ai.com?subject=Try%20AFK">Try AFK</a>
+  <a class="btn" href="/pricing/">Try AFK</a>
 </div></nav>
 
 <header class="phead"><div class="w rv">
   <span class="eyebrow">Features</span>
   <h1>Everything your Kip does for you</h1>
   <p class="lead">One calm helper per person. It learns from the work you already do.</p>
-  <div class="acts"><a class="btn" href="mailto:pranav@invariant-ai.com?subject=Try%20AFK"><img src="/img/capy-1.png" alt="">Try AFK</a><a class="btn ghost" href="/pricing/">See pricing</a></div>
+  <div class="acts"><a class="btn" href="/pricing/"><img src="/img/capy-1.png" alt="">Try AFK</a><a class="btn ghost" href="/pricing/">See pricing</a></div>
 </div>
 <div class="scene rv"><img src="/img/head-features.jpg" alt="Capybara working in a garden studio"></div>
 </header>
@@ -117,21 +117,22 @@
       <div class="note"><img class="cut" src="/img/capy-1.png" alt=""><div><p>"Where is the latest version of the Q3 budget?"</p><span class="mono">Example question</span></div></div>
     </div>
     <div class="vis rv">
-      <div class="orbit">
-        <div class="ring"></div><div class="ring r2"></div>
-        <div class="spin">
-          <span style="--a:0deg"><img src="/icons/gmail.svg" alt="Gmail"></span>
-          <span style="--a:72deg"><img src="/icons/googlecalendar.svg" alt="Calendar"></span>
-          <span style="--a:144deg"><img src="/icons/slack.svg" alt="Slack"></span>
-          <span style="--a:216deg"><img src="/icons/notion.svg" alt="Notion"></span>
-          <span style="--a:288deg"><img src="/icons/zoom.svg" alt="Zoom"></span>
+      <div class="arc" id="arc">
+        <div class="arcicons">
+          <span class="ai"><img src="/icons/gmail.svg" alt="Gmail"></span>
+          <span class="ai"><img src="/icons/googlesheets.svg" alt="Sheets"></span>
+          <span class="ai"><img src="/icons/slack.svg" alt="Slack"></span>
+          <span class="ai"><img src="/icons/notion.svg" alt="Notion"></span>
+          <span class="ai"><img src="/icons/googlecalendar.svg" alt="Calendar"></span>
+          <span class="ai"><img src="/icons/linear.svg" alt="Linear"></span>
         </div>
-        <div class="spin in">
-          <span style="--a:30deg"><img src="/icons/googledrive.svg" alt="Drive"></span>
-          <span style="--a:150deg"><img src="/icons/linear.svg" alt="Linear"></span>
-          <span style="--a:270deg"><img src="/icons/googledocs.svg" alt="Docs"></span>
+        <div class="focus"><img id="arcFocus" src="/icons/gmail.svg" alt=""></div>
+        <svg class="dash" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M86 66 C 80 80, 70 84, 58 88" /></svg>
+        <div class="arccard">
+          <div class="arcq">Did Dana reply about the quote?</div>
+          <div class="arcread"><span class="sp"></span><span id="arcRead">Reading Gmail</span></div>
+          <p id="arcAns">Yes, this morning. She accepted $18,400 and asked to start on 2 June.</p>
         </div>
-        <div class="core"><img class="cut" src="/img/capy-1.png" alt=""></div>
       </div>
     </div>
   </div>
@@ -146,17 +147,25 @@
     </div>
     <div class="vis rv">
       <div class="panel" id="meet">
-        <div class="hd"><h3>Weekly planning</h3><span class="rec"><i></i>Taking notes</span></div>
-        <div class="mtabs"><span class="on">Notes</span><span>Summary</span><span>Actions</span></div>
-        <div class="bd"><ul class="notes" id="notes">
-          <li class="h">Decisions</li>
-          <li>Hiring plan stays at two engineers this quarter</li>
-          <li>Pricing page goes live next Tuesday</li>
-          <li class="h">Actions</li>
-          <li class="act">Maya sends the offer letters</li>
-          <li class="act">Sam ships the pricing page</li>
-          <li class="act">Leo books the customer review</li>
-        </ul></div>
+        <div class="hd"><h3>Product sync</h3><span class="rec"><i></i>Kip is listening</span></div>
+        <div class="mtabs"><span class="on" data-t="notes">Notes</span><span data-t="sum">Summary</span><span data-t="act">Actions</span></div>
+        <div class="bd mbody">
+          <div class="mview mgather on"><div class="think"><span class="sp"></span>Gathering context from the call</div><div class="sk"></div><div class="sk s2"></div><div class="sk"></div><div class="sk s3"></div></div>
+          <ul class="notes mview" id="notes">
+            <li class="h">Decisions</li>
+            <li>Launch moves from 28 April to 12 May</li>
+            <li>Vendor B for packaging, lead time under six weeks</li>
+            <li class="h">Open questions</li>
+            <li>Do pilot customers need a new onboarding call?</li>
+          </ul>
+          <div class="mview msum"><p class="mh">Summary</p><p>Launch moves two weeks to 12 May so packaging can switch to vendor B. Pilot customers hear this week.</p><p class="mh">For you</p><p>You own the updated launch plan, due Friday.</p></div>
+          <ul class="mview todo mact">
+            <li><i class="ck"></i><span>Maya updates the launch plan</span><small>Fri</small></li>
+            <li><i class="ck"></i><span>Sam confirms the vendor B contract</span><small>Wed</small></li>
+            <li><i class="ck"></i><span>Leo tells the two pilot customers</span><small>Thu</small></li>
+          </ul>
+        </div>
+        <span class="mcur" id="mcur"><svg viewBox="0 0 24 24"><path d="M5 3l14 8-6 2-3 6z"/></svg></span>
         <img class="peek cut" src="/img/capy-notes.png" alt="">
       </div>
     </div>
@@ -172,14 +181,23 @@
     </div>
     <div class="vis rv">
       <div class="panel" id="stand">
-        <div class="hd"><div style="display:flex;align-items:center;gap:10px"><span class="pill b">Daily</span><b style="font-weight:500">Morning stand-up</b></div><span class="pill g">8:00 am</span></div>
-        <div class="bd"><ul class="todo">
-          <li><i class="ck"></i><span>Maya: offer letters</span><small>Today</small></li>
-          <li><i class="ck"></i><span>Sam: pricing page</span><small>Today</small></li>
-          <li><i class="ck"></i><span>Leo: customer review prep</span><small>Today</small></li>
-          <li><i class="ck"></i><span>Design sign-off still pending</span><small><span class="pill o">Blocker</span></small></li>
-          <li><i class="ck"></i><span>Weekly planning notes shared</span><small>Yesterday</small></li>
-        </ul></div>
+        <div class="hd"><div style="display:flex;align-items:center;gap:10px"><span class="sicon"><img src="/img/capy-1.png" alt=""></span><div><b style="font-weight:500;display:block">Morning stand-up</b><small style="font-size:12px;color:var(--mute)">Runs weekdays · 8:00 am</small></div></div><span class="pill g" id="stStatus">Running</span></div>
+        <div class="bd">
+          <div class="slive on" id="slive">
+            <div class="srow"><span class="mono" style="color:var(--mute)">Today</span><span class="adding"><i></i>Writing updates</span></div>
+            <ul class="todo">
+              <li><i class="ck"></i><span>Maya: launch plan review</span><small>via Docs</small></li>
+              <li><i class="ck"></i><span>Sam: vendor B contract</span><small>via Linear</small></li>
+              <li><i class="ck"></i><span>Leo: pilot customer calls</span><small>via Calendar</small></li>
+              <li><i class="ck"></i><span>Blocked: quote waits on site address</span><small>via Slack</small></li>
+            </ul>
+          </div>
+          <div class="sdone" id="sdone">
+            <div class="dcard"><img src="/icons/slack.svg" alt=""><b>Stand-up posted to #team</b><span>✓</span></div>
+            <div class="dcard"><img src="/icons/linear.svg" alt=""><b>1 blocker flagged to Maya</b><span>✓</span></div>
+            <div class="dcard"><img src="/icons/googlecalendar.svg" alt=""><b>Nobody needed a meeting</b><span>✓</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -245,7 +263,7 @@
   </div>
 </div></section>
 
-<section class="cta"><div class="w"><div class="band rv"><img class="cut" src="/img/capy-wave.png" alt=""><div><h2>See it with your own team</h2><p>We set it up with you in a day.</p></div><a class="btn" href="mailto:pranav@invariant-ai.com?subject=Try%20AFK">Try AFK</a></div></div></section>
+<section class="cta"><div class="w"><div class="band rv"><img class="cut" src="/img/capy-wave.png" alt=""><div><h2>See it with your own team</h2><p>We set it up with you in a day.</p></div><a class="btn" href="/pricing/">Try AFK</a></div></div></section>
 
 <footer>
   <div class="w">
@@ -257,7 +275,7 @@
       <div class="cols">
         <div><span class="mono">Product</span><a href="/features/">Features</a><a href="/teams/">Teams</a><a href="/pricing/">Pricing</a></div>
         <div><span class="mono">Resources</span><a href="/use-cases/">Use cases</a><a href="/pricing/#faq">FAQ</a><a href="/privacy/">Privacy</a></div>
-        <div><span class="mono">Company</span><a href="mailto:pranav@invariant-ai.com">Contact</a><a href="mailto:pranav@invariant-ai.com?subject=Careers%20at%20AFK">Careers</a></div>
+        
       </div>
     </div>
     <div class="legal"><span>© 2026 AFK. All rights reserved.</span><span>San Francisco</span></div>
@@ -265,6 +283,6 @@
   <div class="land"><span>AFK</span></div>
 </footer>
 
-<script src="/assets/site.js?v=4de7949026"></script>
+<script src="/assets/site.js?v=181c640717"></script>
 </body>
 </html>

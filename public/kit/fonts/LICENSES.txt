@@ -93,8 +93,7 @@ FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.JetBrains Mono (variable), copyright 2020 The JetBrains Mono Project Authors
 (https://github.com/JetBrains/JetBrainsMono). Licensed under the SIL Open Font
 License, Version 1.1: https://github.com/JetBrains/JetBrainsMono/blob/master/OFL.txt
-Vendored 2026-09-18 for the letterhead format (the Figma LetterHead frame sets
-its "INVARIANT" label in JetBrains Mono 500); copied from ~/Library/Fonts.
+Vendored 2026-09-18.
 Copyright (C) 2017 Datto Inc. https://www.datto.com/fonts/d-din,
 with Reserved Font Names "D-DIN".
 

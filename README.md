@@ -5,7 +5,7 @@ knows what they are working on and answers for them. Kip is a capybara.
 
 ## Layout
 - `public/index.html`: the whole site, one static page, inline CSS and JS
-- `public/kit/fonts`: Invariant brand faces (D-DIN, Geist, Geist Mono, JetBrains Mono) from the web-ui kit
+- `public/kit/fonts`: Brand faces (D-DIN, Geist, Geist Mono, JetBrains Mono) from the web-ui kit
 - `public/img`: capybara mascot and painted scenes, generated with Gemini (`tools/gen_image.py`)
 - `public/logos`, `public/icons`: customer logos (Wikimedia Commons) and integration icons (simple-icons, CC0)
 - `public/CNAME`: custom domain for GitHub Pages
