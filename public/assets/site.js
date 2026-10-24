@@ -47,9 +47,9 @@
     tabs.forEach(function(b,j){b.classList.toggle('on',j===i)});
     side.forEach(function(b,j){b.classList.toggle('on',j===i)});
     var d=demos[i];cap.textContent=d.cap;q.textContent=d.q;who.textContent=d.who;whoimg.src=d.img;
-    tabs.forEach(function(b){var pr=b.querySelector('.prog');if(!pr){pr=document.createElement('i');pr.className='prog';b.appendChild(pr)}pr.style.animation='none';void pr.offsetWidth;pr.style.animation=''});
+    tabs.forEach(function(b){var pr=b.querySelector('.prog');if(!pr){b.innerHTML='<span class="t">'+b.textContent+'</span>';pr=document.createElement('i');pr.className='prog';b.insertBefore(pr,b.firstChild)}pr.style.animation='none';void pr.offsetWidth;pr.style.animation=''});
     pull.innerHTML='';
-    ans.innerHTML='<div class="think"><span class="sp"></span>Searching '+d.who.replace("'s capy","'s work").replace('Team stand-up',"everyone's tasks")+'</div><div class="sk"></div><div class="sk s2"></div><div class="sk s3"></div>';
+    ans.innerHTML='<div class="think"><span class="sp"></span>Searching '+d.who.replace("'s capy","'s work").replace('Team stand-up',"everyone's tasks")+'</div><div class="lbar"></div><div class="sk"></div><div class="sk s2"></div><div class="sk s3"></div>';
     timers.push(setTimeout(function(){
       ans.innerHTML='';
       var end=chips(pull,d.pull,'Reading ',0,420,timers);
@@ -163,6 +163,31 @@
     ctrl.querySelectorAll('li').forEach(function(li,k){setTimeout(function(){li.classList.add(li.dataset.on==='1'?'on':'off')},400+k*450)});
     setTimeout(function(){ctrl.querySelector('.pause').classList.add('pulse')},400+5*450+300);
   },.3)}
+
+  /* manager: pings pile up, then the capy answers them */
+  var mgr=document.getElementById('mgr');
+  if(mgr){
+    var items=[].slice.call(mgr.querySelectorAll('#mlist li')),badge=document.getElementById('mbadge'),mcap=document.getElementById('mcap'),
+        mb=mgr.querySelectorAll('.mseg button'),sad=mgr.querySelector('.mimgs .sad'),happy=mgr.querySelector('.mimgs .happy'),mt=[];
+    var caps=["Alex is in back-to-back meetings, and the questions keep coming.","Alex's capy answers what it already knows. Alex only gets the decision."];
+    function mode(m){mb.forEach(function(b,k){b.classList.toggle('on',k===m)});sad.classList.toggle('on',m===0);happy.classList.toggle('on',m===1);mcap.textContent=caps[m]}
+    function setBadge(n,ok){badge.textContent=n;badge.classList.toggle('zero',!!ok)}
+    function reset(){items.forEach(function(li){li.classList.remove('show','wait','done')})}
+    function runMgr(){
+      mt.forEach(clearTimeout);mt=[];mode(0);setBadge(0);reset();
+      items.forEach(function(li,k){mt.push(setTimeout(function(){li.classList.add('show','wait');setBadge(k+1)},400+k*650))});
+      var t=400+items.length*650+1400;
+      mt.push(setTimeout(function(){mode(1)},t));
+      items.forEach(function(li,k){mt.push(setTimeout(function(){li.classList.remove('wait');li.classList.add('done');
+        var left=items.filter(function(x){return !x.classList.contains('done')}).length;
+        setBadge(left+(k===items.length-1?1:0),left===0)},t+900+k*700))});
+      mt.push(setTimeout(runMgr,t+900+items.length*700+6000));
+    }
+    mb.forEach(function(b,k){b.addEventListener('click',function(){mt.forEach(clearTimeout);mt=[];
+      if(k===0){mode(0);items.forEach(function(li){li.classList.remove('done');li.classList.add('show','wait')});setBadge(items.length)}
+      else{mode(1);items.forEach(function(li){li.classList.remove('wait');li.classList.add('show','done')});setBadge(1,true)}})});
+    onView(mgr,runMgr,.3);
+  }
 
   if(reduce){document.querySelectorAll('.msg,.notes li,.ctxbox li,.und,.pull span,.rep').forEach(function(e){e.classList.add('show')})}
 })();

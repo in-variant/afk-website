@@ -3,10 +3,14 @@
 Each page file starts with a front-matter block:
 <!-- title: ... | desc: ... -->
 """
-import pathlib, re
+import hashlib, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 layout = (ROOT / "src/layout.html").read_text()
+# content hashes bust browser and CDN caches whenever the shared CSS or JS changes
+for asset in ("site.css", "site.js"):
+    digest = hashlib.sha1((ROOT / "public/assets" / asset).read_bytes()).hexdigest()[:10]
+    layout = layout.replace(f"/assets/{asset}\"", f"/assets/{asset}?v={digest}\"")
 
 for page in sorted((ROOT / "src/pages").glob("*.html")):
     src = page.read_text()
