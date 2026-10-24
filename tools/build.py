@@ -17,8 +17,8 @@ for page in sorted((ROOT / "src/pages").glob("*.html")):
     meta = dict(re.findall(r"(\w+):\s*([^|]+?)\s*(?:\||-->)", src.split("\n", 1)[0]))
     body = src.split("\n", 1)[1] if src.startswith("<!--") else src
     slug = page.stem
-    html = (layout.replace("{{title}}", meta.get("title", "Runs"))
-                  .replace("{{desc}}", meta.get("desc", "The calm teammate who works with you."))
+    html = (layout.replace("{{title}}", meta.get("title", "AFK"))
+                  .replace("{{desc}}", meta.get("desc", "The teammate who knows what you're working on."))
                   .replace("{{slug}}", slug)
                   .replace("{{body}}", body.strip()))
     html = html.replace(f'data-nav="{slug}"', f'data-nav="{slug}" class="on"')

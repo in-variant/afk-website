@@ -3,7 +3,7 @@
 @font-face{font-family:'Geist Mono';src:url('/kit/fonts/GeistMono-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
 @font-face{font-family:'JetBrains Mono';src:url('/kit/fonts/JetBrainsMono-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
 
-/* Invariant brand faces and colours (web-ui kit); rounded geometry for Runs */
+/* Invariant brand faces and colours (web-ui kit); rounded geometry for AFK */
 :root{
   --bg:#FFFDF8;--card:#FFFFFF;--ink:#303030;--soft:rgba(48,48,48,.64);--mute:rgba(48,48,48,.4);
   --navy:#123C73;--navy-h:#0D2E5A;--orange:#FB4D03;--blue:#022FDB;--blue-tint:#EEF2FF;
@@ -531,7 +531,7 @@ table.sheet{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;
 .lbar::after{content:"";position:absolute;top:0;bottom:0;left:-40%;width:40%;border-radius:6px;background:linear-gradient(90deg,rgba(157,182,255,0),#9DB6FF,rgba(157,182,255,0));animation:sweep 1.1s ease-in-out infinite}
 @keyframes sweep{to{left:100%}}
 
-/* manager: pinged all day, then the capy handles it */
+/* manager: pinged all day, then Kip handles it */
 .mgr{padding:110px 0;border-top:1px solid var(--hair-g)}
 .mgr .head{text-align:center;max-width:720px;margin:0 auto 46px}
 .mgr .head h2{margin:14px 0 16px}

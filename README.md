@@ -1,7 +1,7 @@
-# runs-website
+# afk-website
 
-Marketing site for Runs, at https://tryruns.com. Everyone on a team gets a capy, a calm helper
-that remembers their work and answers teammates for them. The capybara is the mascot.
+Marketing site for AFK, at https://tryafk.com. Everyone on a team gets a Kip, a teammate that
+knows what they are working on and answers for them. Kip is a capybara.
 
 ## Layout
 - `public/index.html`: the whole site, one static page, inline CSS and JS
@@ -22,6 +22,8 @@ Art is generated with `tools/gen_image.py` (Gemini, key from GEMINI_API_KEY or ~
 Push to `main`. `.github/workflows/pages.yml` publishes `public/` to GitHub Pages.
 
 ## Domain
-tryruns.com is registered at Squarespace Domains. DNS there points at GitHub Pages:
+tryafk.com is registered at GoDaddy. DNS there points at GitHub Pages:
 - `A @` to 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
 - `CNAME www` to `in-variant.github.io`
+
+tryruns.com (Squarespace Domains) is retired.

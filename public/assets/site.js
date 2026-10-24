@@ -28,13 +28,13 @@
   /* hero demo: question, sources pulled one by one, answer typed */
   if(document.getElementById('tabs')){
   var demos=[
-    {cap:"Ask a teammate's capy. It answers from their work.",q:"Where is the latest version of the Q3 budget?",who:"Sam's capy",img:"img/capy-1.png",
+    {cap:"Ask a teammate's Kip. It answers from their work.",q:"Where is the latest version of the Q3 budget?",who:"Sam's Kip",img:"img/capy-1.png",
      pull:[["icons/googledrive.svg","Drive"],["icons/gmail.svg","Gmail"],["icons/googlecalendar.svg","Calendar"]],
      a:"It's v6 in the Finance folder. Sam updated the hiring line on Tuesday and sent it to Finance at 4:12 pm, ahead of Thursday's review. I've attached it."},
     {cap:"A written stand-up from everyone's tasks, every morning.",q:"What is everyone working on today?",who:"Team stand-up",img:"img/capy-notes.png",
      pull:[["icons/linear.svg","Tasks"],["icons/googlecalendar.svg","Calendars"],["icons/slack.svg","Slack"]],
      a:"Maya is reviewing the launch plan. Sam is closing the vendor B contract. Leo is telling the pilot customers about 12 May. One blocker: the quote is waiting on the site address."},
-    {cap:"Ask what someone did, why, and where it is.",q:"Why did we pick this supplier last year?",who:"Maya's capy",img:"img/capy-wave.png",
+    {cap:"Ask what someone did, why, and where it is.",q:"Why did we pick this supplier last year?",who:"Maya's Kip",img:"img/capy-wave.png",
      pull:[["icons/googledocs.svg","Docs"],["icons/gmail.svg","Gmail"]],
      a:"Only one had a lead time under six weeks, and the other two failed the quality check. The comparison sheet is in Procurement, and the approval email is attached."}
   ];
@@ -49,7 +49,7 @@
     var d=demos[i];cap.textContent=d.cap;q.textContent=d.q;who.textContent=d.who;whoimg.src=d.img;
     tabs.forEach(function(b){var pr=b.querySelector('.prog');if(!pr){b.innerHTML='<span class="t">'+b.textContent+'</span>';pr=document.createElement('i');pr.className='prog';b.insertBefore(pr,b.firstChild)}pr.style.animation='none';void pr.offsetWidth;pr.style.animation=''});
     pull.innerHTML='';
-    ans.innerHTML='<div class="think"><span class="sp"></span>Searching '+d.who.replace("'s capy","'s work").replace('Team stand-up',"everyone's tasks")+'</div><div class="lbar"></div><div class="sk"></div><div class="sk s2"></div><div class="sk s3"></div>';
+    ans.innerHTML='<div class="think"><span class="sp"></span>Searching '+d.who.replace("'s Kip","'s work").replace('Team stand-up',"everyone's tasks")+'</div><div class="lbar"></div><div class="sk"></div><div class="sk s2"></div><div class="sk s3"></div>';
     timers.push(setTimeout(function(){
       ans.innerHTML='';
       var end=chips(pull,d.pull,'Reading ',0,420,timers);
@@ -164,12 +164,12 @@
     setTimeout(function(){ctrl.querySelector('.pause').classList.add('pulse')},400+5*450+300);
   },.3)}
 
-  /* manager: pings pile up, then the capy answers them */
+  /* manager: pings pile up, then Kip answers them */
   var mgr=document.getElementById('mgr');
   if(mgr){
     var items=[].slice.call(mgr.querySelectorAll('#mlist li')),badge=document.getElementById('mbadge'),mcap=document.getElementById('mcap'),
         mb=mgr.querySelectorAll('.mseg button'),sad=mgr.querySelector('.mimgs .sad'),happy=mgr.querySelector('.mimgs .happy'),mt=[];
-    var caps=["Alex is in back-to-back meetings, and the questions keep coming.","Alex's capy answers what it already knows. Alex only gets the decision."];
+    var caps=["Alex is in back-to-back meetings, and the questions keep coming.","Alex's Kip answers what it already knows. Alex only gets the decision."];
     function mode(m){mb.forEach(function(b,k){b.classList.toggle('on',k===m)});sad.classList.toggle('on',m===0);happy.classList.toggle('on',m===1);mcap.textContent=caps[m]}
     function setBadge(n,ok){badge.textContent=n;badge.classList.toggle('zero',!!ok)}
     function reset(){items.forEach(function(li){li.classList.remove('show','wait','done')})}
@@ -189,7 +189,7 @@
     onView(mgr,runMgr,.3);
   }
 
-  /* privacy demo: scan, sheet seen, WhatsApp never seen, capy declines */
+  /* privacy demo: scan, sheet seen, WhatsApp never seen, Kip declines */
   var pdemo=document.getElementById('pdemo');
   if(pdemo){
     var pQ=document.getElementById('pQ'),pT=document.getElementById('pT'),pA=document.getElementById('pA'),pt=[];
