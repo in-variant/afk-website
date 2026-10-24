@@ -601,3 +601,5 @@ table.sheet{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;
 #pT,#pA{display:none}
 @media(max-width:1000px){.pdemo{grid-template-columns:1fr}.calmgrid.one .p4c{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){.split{grid-template-columns:1fr}.calmgrid.one .p4c{grid-template-columns:1fr}}
+
+.meet{display:inline-block;margin:0 0 18px;font-family:var(--jmono);font-size:11px;text-transform:uppercase;color:var(--navy);background:var(--blue-tint);padding:6px 12px;border-radius:var(--pill)}
