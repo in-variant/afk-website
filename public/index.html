@@ -31,7 +31,7 @@
   <div class="w">
     <img class="capy cut" src="/img/capy-wave.png" alt="Runs capybara waving">
     <h1>The calm teammate<br>who works with you</h1>
-    <p class="lead">Runs remembers your work and answers your teammates for you, across email, calendar, docs, meetings and Slack. Nobody waits for a reply.</p>
+    <p class="lead">Runs is your twin at work. It understands what you are working on and answers your teammates for you, across your screen, email, calendar, docs and Slack. Nobody waits for a reply.</p>
     <a class="btn" href="mailto:pranav@invariant-ai.com?subject=Try%20Runs"><img src="/img/capy-1.png" alt="">Try Runs</a>
     <small>Set up for your whole team in a day</small>
     <div class="chips">
@@ -101,6 +101,40 @@
     </div>
   </div></div>
 </section>
+
+<section class="twin" id="screen"><div class="w">
+  <div class="head rv">
+    <span class="eyebrow">Your twin</span>
+    <h2>A teammate that knows what you're working on</h2>
+    <p class="lead">Your capy follows along as you work on screen, when you let it. It understands what you did and why, so when someone asks about it later, it already knows the answer.</p>
+  </div>
+  <div class="tsteps rv" id="tsteps"><span class="on"><b>1</b>You work as usual</span><span><b>2</b>Your capy understands</span><span><b>3</b>Teammates ask, it answers</span></div>
+  <div class="tstage rv" id="twin">
+    <div class="screen">
+      <div class="bar"><i></i><i></i><i></i><span>Q3 Report · Sheets</span><em class="follow"><i></i>Capy is following along</em></div>
+      <div class="sheetw"><table class="sheet" id="sheet">
+        <thead><tr><th></th><th>Region</th><th>Q2</th><th>Q3</th></tr></thead>
+        <tbody>
+          <tr><td>2</td><td>North</td><td>118,400</td><td data-v="131,900"></td></tr>
+          <tr><td>3</td><td>South</td><td>96,200</td><td data-v="104,600"></td></tr>
+          <tr><td>4</td><td>West</td><td>142,700</td><td data-v="159,300"></td></tr>
+          <tr><td>5</td><td>East</td><td>73,900</td><td data-v="86,500"></td></tr>
+          <tr class="tot"><td>6</td><td>Total</td><td>431,200</td><td data-v="482,300"></td></tr>
+        </tbody>
+      </table></div>
+      <div class="toast" id="toast"><img src="/img/capy-desk.png" alt=""><div><b>Added to Maya's context</b><span>Q3 report: revenue 482,300, up 12% on Q2 · 3:40 pm</span></div></div>
+    </div>
+    <div class="tchat">
+      <div class="hd"><img src="/icons/slack.svg" alt="">Later that day</div>
+      <div class="msgs">
+        <div class="msg" id="tQ"><img src="/img/capy-wave.png" alt=""><div><b>Leo</b><div class="bub"><p>Hey Maya, what's the revenue figure in the Q3 report you worked on?</p></div></div></div>
+        <div class="msg" id="tT"><img src="/img/capy-1.png" alt=""><div><b>Maya's capy</b><div class="bub"><span class="typing"><i></i><i></i><i></i></span></div></div></div>
+        <div class="msg" id="tA"><img src="/img/capy-1.png" alt=""><div><b>Maya's capy</b><div class="bub"><p>$482,300 for Q3, up 12% on Q2. West was the largest region at $159,300.</p><span class="srcpill">Q3 Report · Sheets · edited 3:40 pm</span></div></div></div>
+      </div>
+      <p class="tnote">Maya was in a meeting. Her capy answered from what she did on screen.</p>
+    </div>
+  </div>
+</div></section>
 
 <section class="pipe" id="how"><div class="w">
   <div class="head rv">
@@ -294,17 +328,32 @@
   </div>
 </div></section>
 
-<section class="dark" id="privacy"><div class="w">
-  <span class="eyebrow">Privacy</span>
-  <h2>A memory this personal has to stay private</h2>
-  <p class="lead">You decide what your capy sees, keeps and forgets.</p>
-  <div class="p4">
-    <div class="rv"><div class="st"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7"/><path d="M5 15L15 5"/></svg><div><b>Only what you connect</b><small>Off by default</small></div></div><h3>You choose what it sees</h3><p>Connect only the tools you want. Nothing is captured that you have not turned on.</p></div>
-    <div class="rv"><div class="st"><svg viewBox="0 0 20 20"><path d="M4 6h12M8 6V4h4v2M6 6l1 10h6l1-10"/></svg><div><b>Delete anything</b><small>In two clicks</small></div></div><h3>Pause or delete</h3><p>Stop capture whenever you like, or remove anything your capy has kept.</p></div>
-    <div class="rv"><div class="st"><svg viewBox="0 0 20 20"><circle cx="10" cy="7" r="3"/><path d="M4 17c1-4 11-4 12 0"/></svg><div><b>Activity reports</b><small>None</small></div></div><h3>It works with you</h3><p>Your capy saves you interruptions. It answers questions about your work, nothing more.</p></div>
-    <div class="rv"><div class="st"><svg viewBox="0 0 20 20"><rect x="3" y="4" width="14" height="9" rx="2"/><path d="M7 16h6"/></svg><div><b>One machine each</b><small>Your domain only</small></div></div><h3>Separate by design</h3><p>Each capy runs on its own private cloud machine, and only your company domain can sign in.</p></div>
+<section class="calm" id="privacy"><div class="w"><div class="calmp">
+  <div class="calmhead rv">
+    <span class="eyebrow">Privacy</span>
+    <h2>A memory this personal has to stay private</h2>
+    <p class="lead">You decide what your capy sees, keeps and forgets.</p>
   </div>
-</div></section>
+  <div class="calmgrid">
+    <div class="ctrl rv" id="ctrl">
+      <div class="hd"><img src="/img/capy-1.png" alt=""><div><b>What Maya's capy can see</b><small>Change anytime</small></div></div>
+      <ul>
+        <li data-on="1"><span>Spreadsheets and docs</span><i class="sw"></i></li>
+        <li data-on="1"><span>Work email and calendar</span><i class="sw"></i></li>
+        <li data-on="1"><span>Slack</span><i class="sw"></i></li>
+        <li data-on="0"><span>Personal browsing</span><i class="sw"></i></li>
+        <li data-on="0"><span>Banking and health apps</span><i class="sw"></i></li>
+      </ul>
+      <button class="pause" type="button">Pause for 1 hour</button>
+    </div>
+    <div class="p4c">
+      <div class="pc rv"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M6.5 17.5l11-11"/></svg></span><h3>You choose what it sees</h3><p>Nothing is on until you turn it on. Apps you switch off are never seen.</p></div>
+      <div class="pc rv"><span class="ico"><svg viewBox="0 0 24 24"><path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"/></svg></span><h3>Pause or delete</h3><p>Pause for an hour or for good, and remove anything your capy has kept.</p></div>
+      <div class="pc rv"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.5-5 12.5-5 14 0"/></svg></span><h3>It works with you</h3><p>Your capy answers questions about your work. No activity reports, no scores.</p></div>
+      <div class="pc rv"><span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="2"/><path d="M9 20h6"/></svg></span><h3>Separate by design</h3><p>Its own private cloud machine, and only your company domain can sign in.</p></div>
+    </div>
+  </div>
+</div></div></section>
 
 <section class="dev"><div class="w">
   <div class="rv">
