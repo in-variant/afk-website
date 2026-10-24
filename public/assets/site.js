@@ -134,29 +134,56 @@
     var yr=b.dataset.p==='y';document.querySelectorAll('[data-m]').forEach(function(el){el.textContent=yr?el.dataset.y:el.dataset.m});
     document.querySelectorAll('.per').forEach(function(el){el.textContent=yr?'/ person / month, billed yearly':'/ person / month'});
   })})}
-  /* twin: cells typed on screen, captured into context, answered later */
+  /* twin: three quick scenes of on-screen work, captured, then answered */
   var twin=document.getElementById('twin');
   if(twin){
-    var cells=[].slice.call(twin.querySelectorAll('td[data-v]')),steps=document.querySelectorAll('#tsteps span'),
-        toast=document.getElementById('toast'),chat=twin.querySelector('.tchat'),tQ=document.getElementById('tQ'),tT=document.getElementById('tT'),tA=document.getElementById('tA'),tw=[];
+    var sc=[
+      {app:'Q3 Report · Sheets',ctx:'Q3 report: revenue 482,300, up 12% on Q2 · 3:40 pm',who:'Leo',
+       q:"What's the revenue figure in the Q3 report Maya worked on?",a:'$482,300 for Q3, up 12% on Q2. West was the largest region at $159,300.',src:'Q3 Report · Sheets · edited 3:40 pm'},
+      {app:'Spring launch plan · Docs',ctx:'Launch plan: launch moved from 28 April to 12 May · 4:05 pm',who:'Priya',
+       q:'Is the launch still on 28 April?',a:'No, it moved to 12 May. Maya updated the launch plan this afternoon to give packaging two more weeks.',src:'Spring launch plan · Docs · edited 4:05 pm'},
+      {app:'Gmail · New message',ctx:'Quote sent to Dana: $18,400, delivered in three weeks · 4:30 pm',who:'Sam',
+       q:'What did we quote Dana for the spring rollout?',a:'$18,400 for the full rollout, delivered in three weeks. Maya sent it at 4:30 pm and offered a call on Thursday.',src:'Gmail · to Dana · 4:30 pm'}
+    ];
+    var DUR=8500,scenes=twin.querySelectorAll('.scene'),apps=twin.querySelectorAll('#tapps button'),steps=document.querySelectorAll('#tsteps span'),
+        toast=document.getElementById('toast'),toastTxt=document.getElementById('toastTxt'),chat=twin.querySelector('.tchat'),
+        tQ=document.getElementById('tQ'),tT=document.getElementById('tT'),tA=document.getElementById('tA'),tw=[],iv=[],cur=0;
+    twin.style.setProperty('--dur',DUR+'ms');
     function step(n){steps.forEach(function(s,k){s.classList.toggle('on',k===n)})}
-    function runTwin(){
-      tw.forEach(clearTimeout);tw=[];step(0);
-      cells.forEach(function(c){c.textContent='';c.className=''});toast.classList.remove('show');chat.classList.remove('live');
+    function later(f,ms){tw.push(setTimeout(f,ms))}
+    function typeInto(el,text,speed,done){var n=0;var h=setInterval(function(){n+=2;el.innerHTML=text.slice(0,n)+'<span class="cur"></span>';if(n>=text.length){clearInterval(h);el.textContent=text;done&&done()}},speed);iv.push(h)}
+    function clearAll(){tw.forEach(clearTimeout);iv.forEach(clearInterval);tw=[];iv=[]}
+    function play(i){
+      clearAll();cur=i;var s=sc[i],scene=scenes[i];
+      scenes.forEach(function(x,k){x.classList.toggle('on',k===i)});
+      apps.forEach(function(b,k){b.classList.toggle('on',k===i);var pr=b.querySelector('.prog');pr.style.animation='none';void pr.offsetWidth;pr.style.animation=''});
+      document.getElementById('tApp').textContent=s.app;
+      step(0);toast.classList.remove('show');chat.classList.remove('live');
       [tQ,tA].forEach(function(m){m.classList.remove('show')});tT.classList.remove('show');tT.style.display='none';tA.style.display='none';
-      var t=500;
-      cells.forEach(function(c,k){
-        tw.push(setTimeout(function(){cells.forEach(function(x){x.classList.remove('act')});c.classList.add('act');
-          var v=c.dataset.v,n=0;var iv=setInterval(function(){n++;c.textContent=v.slice(0,n);if(n>=v.length){clearInterval(iv);if(k===cells.length-1){c.classList.remove('act');c.classList.add('fill')}}},55)},t));
-        t+=k===cells.length-2?1100:800;
-      });
-      tw.push(setTimeout(function(){step(1);toast.classList.add('show')},t+600));
-      tw.push(setTimeout(function(){step(2);chat.classList.add('live');tQ.classList.add('show')},t+2600));
-      tw.push(setTimeout(function(){tT.style.display='flex';requestAnimationFrame(function(){tT.classList.add('show')})},t+3500));
-      tw.push(setTimeout(function(){tT.style.display='none';tA.style.display='flex';requestAnimationFrame(function(){tA.classList.add('show')})},t+5200));
-      tw.push(setTimeout(runTwin,t+12000));
+      document.getElementById('tWho').textContent=s.who;document.getElementById('tQtxt').textContent=s.q;
+      document.getElementById('tAtxt').textContent=s.a;document.getElementById('tSrc').textContent=s.src;toastTxt.textContent=s.ctx;
+      var t=250;
+      if(i===0){
+        var cells=[].slice.call(scene.querySelectorAll('td[data-v]'));
+        cells.forEach(function(c){c.textContent='';c.className=''});
+        cells.forEach(function(c,k){later(function(){cells.forEach(function(x){x.classList.remove('act')});c.classList.add('act');
+          typeInto(c,c.dataset.v,22,function(){if(k===cells.length-1){c.classList.remove('act');c.classList.add('fill')}})},t);t+=k===cells.length-2?520:330});
+        t+=350;
+      }else{
+        var ty=scene.querySelector('.ty');ty.textContent='';
+        var send=scene.querySelector('.send');if(send)send.classList.remove('show');
+        var old=scene.querySelector('s.old');if(old)old.style.opacity='1';
+        later(function(){typeInto(ty,ty.dataset.v,16,function(){if(send)send.classList.add('show')})},t);
+        t+=Math.ceil(ty.dataset.v.length/2)*16+450;
+      }
+      later(function(){step(1);toast.classList.add('show')},t);
+      later(function(){step(2);chat.classList.add('live');tQ.classList.add('show')},t+1100);
+      later(function(){tT.style.display='flex';requestAnimationFrame(function(){tT.classList.add('show')})},t+1600);
+      later(function(){tT.style.display='none';tA.style.display='flex';requestAnimationFrame(function(){tA.classList.add('show')})},t+2500);
+      later(function(){play((i+1)%sc.length)},Math.max(DUR,t+5200));
     }
-    onView(twin,runTwin,.3);
+    apps.forEach(function(b,k){b.addEventListener('click',function(){play(k)})});
+    onView(twin,function(){play(0)},.3);
   }
   var ctrl=document.getElementById('ctrl');
   if(ctrl){onView(ctrl,function(){
@@ -204,6 +231,36 @@
       pt.push(setTimeout(runP,15000));
     }
     onView(pdemo,runP,.3);
+  }
+
+  /* context cloud: cards start gathered at the centre and fan out with scroll */
+  var cloud=document.querySelector('.cloud');
+  if(cloud&&!reduce){
+    var cards=[].slice.call(cloud.querySelectorAll('.ctx')),rays=cloud.querySelector('svg.rays'),off=[],ticking=false;
+    function measure(){
+      off=[];var cr=cloud.getBoundingClientRect(),cx=cr.left+cr.width/2,cy=cr.top+cr.height/2;
+      cards.forEach(function(c){c.style.setProperty('--dx','0px');c.style.setProperty('--dy','0px');c.style.setProperty('--s','1')});
+      cards.forEach(function(c){var r=c.getBoundingClientRect();off.push([cx-(r.left+r.width/2),cy-(r.top+r.height/2)])});
+    }
+    function frame(){
+      ticking=false;
+      if(innerWidth<1000){cards.forEach(function(c){c.style.removeProperty('--dx');c.style.removeProperty('--dy');c.style.removeProperty('--s');c.style.removeProperty('--o')});return}
+      var r=cloud.getBoundingClientRect(),vh=innerHeight;
+      var p=Math.min(1,Math.max(0,(vh*0.95-r.top)/(vh*0.85)));
+      var e=1-Math.pow(1-p,3);
+      cards.forEach(function(c,k){
+        var d=Math.min(1,Math.max(0,e*1.15-k*0.03));
+        c.style.setProperty('--dx',(off[k][0]*(1-d)*0.92).toFixed(1)+'px');
+        c.style.setProperty('--dy',(off[k][1]*(1-d)*0.92).toFixed(1)+'px');
+        c.style.setProperty('--s',(0.55+0.45*d).toFixed(3));
+        c.style.setProperty('--o',Math.min(1,d*1.6).toFixed(3));
+      });
+      if(rays){rays.style.setProperty('--rp',e.toFixed(3));rays.style.setProperty('--ro',Math.min(1,e*1.5).toFixed(3))}
+    }
+    function req(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
+    measure();frame();
+    addEventListener('scroll',req,{passive:true});
+    addEventListener('resize',function(){measure();req()});
   }
 
   if(reduce){document.querySelectorAll('.msg,.notes li,.ctxbox li,.und,.pull span,.rep').forEach(function(e){e.classList.add('show')})}

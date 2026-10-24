@@ -603,3 +603,37 @@ table.sheet{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;
 @media(max-width:700px){.split{grid-template-columns:1fr}.calmgrid.one .p4c{grid-template-columns:1fr}}
 
 .meet{display:inline-block;margin:0 0 18px;font-family:var(--jmono);font-size:11px;text-transform:uppercase;color:var(--navy);background:var(--blue-tint);padding:6px 12px;border-radius:var(--pill)}
+
+/* twin: three quick scenes */
+.tapps{display:flex;gap:6px;padding:12px 14px 0}
+.tapps button{position:relative;overflow:hidden;display:flex;align-items:center;gap:7px;font-size:13px;padding:7px 12px;border-radius:var(--pill);color:var(--soft);background:var(--row);transition:color .25s,background .25s}
+.tapps button img{width:14px;height:14px;position:relative;z-index:1}
+.tapps button.on{color:var(--ink);background:var(--blue-tint)}
+.tapps .prog{position:absolute;inset:0;border-radius:var(--pill);background:linear-gradient(90deg,rgba(157,182,255,0),rgba(157,182,255,.6));transform-origin:left;transform:scaleX(0);z-index:0}
+.tapps button.on .prog{animation:prog var(--dur,8.5s) linear forwards}
+.tapps .t{position:relative;z-index:1}
+.scenes{position:relative;min-height:330px}
+.scene{position:absolute;inset:0;opacity:0;transform:translateX(12px);transition:opacity .4s,transform .4s;pointer-events:none}
+.scene.on{opacity:1;transform:none;pointer-events:auto}
+.scene .sheetw{padding:14px 18px 100px}
+.doc{margin:14px 18px;padding:20px 22px;border-radius:14px;box-shadow:0 0 0 1px var(--hair);font-size:14px;line-height:1.55;display:grid;gap:9px}
+.doc h4{font-family:var(--din);font-weight:500;font-size:20px;letter-spacing:-.02em}
+.doc .meta{font-family:var(--jmono);font-size:10px;text-transform:uppercase;color:var(--mute)}
+.doc s.old{color:var(--mute);text-decoration-color:var(--orange);transition:opacity .3s}
+.doc .ty{background:#FFF3C4;border-radius:4px;padding:0 2px}
+.doc .ty:empty{padding:0}
+.mail{margin:14px 18px;border-radius:14px;box-shadow:0 0 0 1px var(--hair);padding:6px 18px 18px;font-size:14px;line-height:1.55;position:relative;min-height:220px}
+.mail .row{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--hair-g)}
+.mail .row span{width:56px;color:var(--mute);font-size:13px}
+.mail p{padding-top:12px;min-height:90px}
+.mail .send{position:absolute;right:16px;bottom:14px;font-family:var(--jmono);font-size:11px;text-transform:uppercase;background:var(--navy);color:#fff;padding:7px 14px;border-radius:var(--pill);opacity:0;transform:scale(.9);transition:opacity .3s,transform .3s}
+.mail .send.show{opacity:1;transform:none}
+.ty .cur{height:14px;vertical-align:-2px}
+
+/* context cloud: cards fan out from the centre as you scroll */
+.cloud .ctx{translate:var(--dx,0) var(--dy,0);scale:var(--s,1);opacity:var(--o,1);will-change:translate,scale,opacity}
+.cloud svg.rays{opacity:var(--ro,1)}
+.cloud svg.rays path{stroke-dasharray:900;stroke-dashoffset:calc(900px * (1 - var(--rp,1)))}
+
+.head .lead,.phead .lead,.feat .lead,.role .lead{max-width:620px}
+.hero .lead{max-width:600px}

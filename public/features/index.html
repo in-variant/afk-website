@@ -11,7 +11,7 @@
 <link rel="icon" href="/img/capy-icon.png">
 <link rel="preload" href="/kit/fonts/D-DIN.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/kit/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css?v=431995acb4">
+<link rel="stylesheet" href="/assets/site.css?v=8efbd35d8c">
 </head>
 <body class="page-features">
 
@@ -30,7 +30,7 @@
 <header class="phead"><div class="w rv">
   <span class="eyebrow">Features</span>
   <h1>Everything your Kip does for you</h1>
-  <p class="lead">One calm helper per person. It learns from the work you already do and takes the small interruptions off your plate.</p>
+  <p class="lead">One calm helper per person. It learns from the work you already do.</p>
   <div class="acts"><a class="btn" href="mailto:pranav@invariant-ai.com?subject=Try%20AFK"><img src="/img/capy-1.png" alt="">Try AFK</a><a class="btn ghost" href="/pricing/">See pricing</a></div>
 </div>
 <div class="scene rv"><img src="/img/head-features.jpg" alt="Capybara working in a garden studio"></div>
@@ -52,30 +52,56 @@
   <div class="head rv">
     <span class="eyebrow">Your twin</span>
     <h2>A teammate that knows what you're working on</h2>
-    <p class="lead">Your Kip follows along as you work on screen, when you let it. It understands what you did and why, so when someone asks about it later, it already knows the answer.</p>
+    <p class="lead">Kip follows along as you work, when you let it, so it can answer questions about it later.</p>
   </div>
   <div class="tsteps rv" id="tsteps"><span class="on"><b>1</b>You work as usual</span><span><b>2</b>Your Kip understands</span><span><b>3</b>Teammates ask, it answers</span></div>
   <div class="tstage rv" id="twin">
     <div class="screen">
-      <div class="bar"><i></i><i></i><i></i><span>Q3 Report · Sheets</span><em class="follow"><i></i>Kip is following along</em></div>
-      <div class="sheetw"><table class="sheet" id="sheet">
-        <thead><tr><th></th><th>Region</th><th>Q2</th><th>Q3</th></tr></thead>
-        <tbody>
-          <tr><td>2</td><td>North</td><td>118,400</td><td data-v="131,900"></td></tr>
-          <tr><td>3</td><td>South</td><td>96,200</td><td data-v="104,600"></td></tr>
-          <tr><td>4</td><td>West</td><td>142,700</td><td data-v="159,300"></td></tr>
-          <tr><td>5</td><td>East</td><td>73,900</td><td data-v="86,500"></td></tr>
-          <tr class="tot"><td>6</td><td>Total</td><td>431,200</td><td data-v="482,300"></td></tr>
-        </tbody>
-      </table></div>
-      <div class="toast" id="toast"><img src="/img/capy-desk.png" alt=""><div><b>Added to Maya's context</b><span>Q3 report: revenue 482,300, up 12% on Q2 · 3:40 pm</span></div></div>
+      <div class="bar"><i></i><i></i><i></i><span id="tApp">Q3 Report · Sheets</span><em class="follow"><i></i>Kip is following along</em></div>
+      <div class="tapps" id="tapps">
+        <button class="on"><img src="/icons/googlesheets.svg" alt=""><span class="t">Sheets</span><i class="prog"></i></button>
+        <button><img src="/icons/googledocs.svg" alt=""><span class="t">Docs</span><i class="prog"></i></button>
+        <button><img src="/icons/gmail.svg" alt=""><span class="t">Email</span><i class="prog"></i></button>
+      </div>
+      <div class="scenes">
+        <div class="scene on">
+          <div class="sheetw"><table class="sheet">
+            <thead><tr><th></th><th>Region</th><th>Q2</th><th>Q3</th></tr></thead>
+            <tbody>
+              <tr><td>2</td><td>North</td><td>118,400</td><td data-v="131,900"></td></tr>
+              <tr><td>3</td><td>South</td><td>96,200</td><td data-v="104,600"></td></tr>
+              <tr><td>4</td><td>West</td><td>142,700</td><td data-v="159,300"></td></tr>
+              <tr><td>5</td><td>East</td><td>73,900</td><td data-v="86,500"></td></tr>
+              <tr class="tot"><td>6</td><td>Total</td><td>431,200</td><td data-v="482,300"></td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="scene">
+          <div class="doc">
+            <h4>Spring launch plan</h4>
+            <p class="meta">Owner: Maya · Product</p>
+            <p><b>Goal.</b> Ship the new packaging and onboarding to the first 40 customers.</p>
+            <p><b>Date.</b> <s class="old">Launch on 28 April.</s> <span class="ty" data-v="Launch moves to 12 May, to give packaging two more weeks."></span></p>
+            <p><b>Owners.</b> Sam on vendor contract, Leo on customer comms.</p>
+          </div>
+        </div>
+        <div class="scene">
+          <div class="mail">
+            <div class="row"><span>To</span>dana@northwind.co</div>
+            <div class="row"><span>Subject</span>Quote for the spring rollout</div>
+            <p class="ty" data-v="Hi Dana, our quote for the full rollout is $18,400, delivered in three weeks. Happy to walk through it on Thursday. Best, Maya"></p>
+            <div class="send">Sent</div>
+          </div>
+        </div>
+      </div>
+      <div class="toast" id="toast"><img src="/img/capy-desk.png" alt=""><div><b>Added to Maya's context</b><span id="toastTxt"></span></div></div>
     </div>
     <div class="tchat">
       <div class="hd"><img src="/icons/slack.svg" alt="">Later that day</div>
       <div class="msgs">
-        <div class="msg" id="tQ"><img src="/img/capy-wave.png" alt=""><div><b>Leo</b><div class="bub"><p>Hey Maya, what's the revenue figure in the Q3 report you worked on?</p></div></div></div>
+        <div class="msg" id="tQ"><img src="/img/capy-wave.png" alt=""><div><b id="tWho">Leo</b><div class="bub"><p id="tQtxt"></p></div></div></div>
         <div class="msg" id="tT"><img src="/img/capy-1.png" alt=""><div><b>Maya's Kip</b><div class="bub"><span class="typing"><i></i><i></i><i></i></span></div></div></div>
-        <div class="msg" id="tA"><img src="/img/capy-1.png" alt=""><div><b>Maya's Kip</b><div class="bub"><p>$482,300 for Q3, up 12% on Q2. West was the largest region at $159,300.</p><span class="srcpill">Q3 Report · Sheets · edited 3:40 pm</span></div></div></div>
+        <div class="msg" id="tA"><img src="/img/capy-1.png" alt=""><div><b>Maya's Kip</b><div class="bub"><p id="tAtxt"></p><span class="srcpill" id="tSrc"></span></div></div></div>
       </div>
       <p class="tnote">Maya was in a meeting. Her Kip answered from what she did on screen.</p>
     </div>
@@ -87,7 +113,7 @@
     <div class="txt rv">
       <span class="eyebrow">Ask</span>
       <h2>Answers across all your tools</h2>
-      <p class="lead">Your Kip reads your email, calendar, documents and tasks. Ask it anything you would normally ping a teammate for, and every answer shows where it came from.</p>
+      <p class="lead">Ask Kip anything you'd normally ping a teammate for. Every answer shows its source.</p>
       <div class="note"><img class="cut" src="/img/capy-1.png" alt=""><div><p>"Where is the latest version of the Q3 budget?"</p><span class="mono">Example question</span></div></div>
     </div>
     <div class="vis rv">
@@ -116,7 +142,7 @@
     <div class="txt rv">
       <span class="eyebrow">Meetings</span>
       <h2>Never chase meeting notes again</h2>
-      <p class="lead">Connect your meeting notes and your Kip keeps the decisions and the actions. Anyone who missed the call can ask what happened.</p>
+      <p class="lead">Kip keeps the decisions and actions from your meetings. Anyone who missed it can ask.</p>
     </div>
     <div class="vis rv">
       <div class="panel" id="meet">
@@ -142,7 +168,7 @@
     <div class="txt rv">
       <span class="eyebrow">Stand-ups</span>
       <h2>Stand-ups without the meeting</h2>
-      <p class="lead">Every morning each Kip writes its person's update from their tasks and calendar. The team reads one stand-up, blockers first.</p>
+      <p class="lead">Each Kip writes its person's update every morning. The team reads one stand-up.</p>
     </div>
     <div class="vis rv">
       <div class="panel" id="stand">
@@ -164,7 +190,7 @@
     <div class="txt rv">
       <span class="eyebrow">Drafts</span>
       <h2>From blank page to first draft</h2>
-      <p class="lead">Ask for a reply, an update or a summary. Your Kip checks the thread, the meeting and the plan, then writes it in your words.</p>
+      <p class="lead">Ask for a reply or update. Kip checks the thread and the plan, then writes it.</p>
     </div>
     <div class="vis rv">
       <div class="panel draft" id="draft">
@@ -185,7 +211,7 @@
     <div class="txt rv">
       <span class="eyebrow">Handover</span>
       <h2>Nothing is lost when someone leaves</h2>
-      <p class="lead">Leave, parental leave, a new role or a new company. Their Kip keeps what they knew, so the next person can ask instead of guessing.</p>
+      <p class="lead">Leave or a new role: their Kip keeps what they knew, so the next person can ask.</p>
     </div>
     <div class="vis rv">
       <div class="panel" id="hand">
@@ -206,7 +232,7 @@
     <div>
       <span class="eyebrow">Slack</span>
       <h2 style="margin-top:12px">Ask from where your team already talks</h2>
-      <p class="lead">Tag a teammate and their Kip replies in the thread, with files attached. A direct message goes to your own Kip.</p>
+      <p class="lead">Tag a teammate and their Kip replies in the thread, with files attached.</p>
     </div>
     <div class="slack">
       <div class="hd"><img src="/icons/slack.svg" alt="">#general</div>
@@ -239,6 +265,6 @@
   <div class="land"><span>AFK</span></div>
 </footer>
 
-<script src="/assets/site.js?v=7415b6bc56"></script>
+<script src="/assets/site.js?v=4de7949026"></script>
 </body>
 </html>
