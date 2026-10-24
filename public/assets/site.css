@@ -702,3 +702,24 @@ table.sheet{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;
 .scenes{min-height:390px}
 
 .set .h18{height:18px}.set .h22{height:22px}
+
+/* arc answer: rises away like a shadow, next one enters from below */
+.arccard{min-height:132px}
+.arcbody{transition:opacity .35s,transform .35s}
+.arcbody.enter{opacity:0;transform:translateY(14px)}
+.arcbody.ghost{position:absolute;left:16px;right:16px;top:14px;pointer-events:none;color:rgba(48,48,48,.55);text-shadow:0 6px 14px rgba(20,30,60,.18);transition:transform 1s cubic-bezier(.2,.6,.2,1),opacity 1s ease,filter 1s ease}
+.arcbody.ghost.up{transform:translateY(-90px) scale(.98);opacity:0;filter:blur(3px)}
+.arcbody.ghost .arcq{background:rgba(245,243,236,.6)}
+.arcbody.ghost .sp{display:none}
+
+/* meetings: live transcript before the notes */
+.mhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.mstate{display:inline-flex;align-items:center;gap:7px;font-family:var(--jmono);font-size:11px;text-transform:uppercase;color:var(--orange);background:#FFEDE4;padding:4px 10px;border-radius:var(--pill)}
+.mstate::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;animation:blink 1s steps(1) infinite}
+.mstate.w{color:var(--blue);background:var(--blue-tint)}
+.clock{font-family:var(--jmono);font-size:11px;color:var(--mute)}
+.tline{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.tline.show{opacity:1;transform:none}
+.tline img{width:26px;height:26px;border-radius:50%;object-fit:cover;object-position:50% 12%;background:var(--row);flex:none}
+.tline p{font-size:13.5px;background:var(--row);padding:7px 11px;border-radius:4px 12px 12px 12px}
+.tline b{display:block;font-size:11px;font-weight:500;color:var(--soft);margin-bottom:1px}
