@@ -28,14 +28,14 @@
   /* hero demo: question, sources pulled one by one, answer typed */
   if(document.getElementById('tabs')){
   var demos=[
-    {cap:"Ask a teammate's Kip. It answers from their work.",q:"Where is the latest version of the Q3 budget?",who:"Sam's Kip",img:"img/capy-1.png",
-     pull:[["icons/googledrive.svg","Drive"],["icons/gmail.svg","Gmail"],["icons/googlecalendar.svg","Calendar"]],
+    {cap:"Ask a teammate's Kip. It answers from their work.",q:"Where is the latest version of the Q3 budget?",who:"Sam's Kip",img:"/img/capy-1.png",
+     pull:[["/icons/googledrive.svg","Drive"],["/icons/gmail.svg","Gmail"],["/icons/googlecalendar.svg","Calendar"]],
      a:"It's v6 in the Finance folder. Sam updated the hiring line on Tuesday and sent it to Finance at 4:12 pm, ahead of Thursday's review. I've attached it."},
-    {cap:"A written stand-up from everyone's tasks, every morning.",q:"What is everyone working on today?",who:"Team stand-up",img:"img/capy-notes.png",
-     pull:[["icons/linear.svg","Tasks"],["icons/googlecalendar.svg","Calendars"],["icons/slack.svg","Slack"]],
+    {cap:"A written stand-up from everyone's tasks, every morning.",q:"What is everyone working on today?",who:"Team stand-up",img:"/img/capy-notes.png",
+     pull:[["/icons/linear.svg","Tasks"],["/icons/googlecalendar.svg","Calendars"],["/icons/slack.svg","Slack"]],
      a:"Maya is reviewing the launch plan. Sam is closing the vendor B contract. Leo is telling the pilot customers about 12 May. One blocker: the quote is waiting on the site address."},
-    {cap:"Ask what someone did, why, and where it is.",q:"Why did we pick this supplier last year?",who:"Maya's Kip",img:"img/capy-wave.png",
-     pull:[["icons/googledocs.svg","Docs"],["icons/gmail.svg","Gmail"]],
+    {cap:"Ask what someone did, why, and where it is.",q:"Why did we pick this supplier last year?",who:"Maya's Kip",img:"/img/capy-wave.png",
+     pull:[["/icons/googledocs.svg","Docs"],["/icons/gmail.svg","Gmail"]],
      a:"Only one had a lead time under six weeks, and the other two failed the quality check. The comparison sheet is in Procurement, and the approval email is attached."}
   ];
   var tabs=document.querySelectorAll('#tabs button'),side=document.querySelectorAll('.side a'),
@@ -85,11 +85,11 @@
     wires.innerHTML=html;
   }
   var ctxEvents=[
-    ["icons/gmail.svg","Sent the Q3 budget to Finance","Tue 4:12 pm"],
-    ["icons/googlecalendar.svg","Product sync: launch moved to 12 May","Thu 11:00 am"],
-    ["icons/googledocs.svg","Updated the launch plan, section 3","Thu 2:40 pm"],
-    ["icons/slack.svg","Agreed vendor B for lead time","Thu 5:05 pm"],
-    ["icons/linear.svg","Closed: pricing page copy","Fri 9:30 am"]
+    ["/icons/gmail.svg","Sent the Q3 budget to Finance","Tue 4:12 pm"],
+    ["/icons/googlecalendar.svg","Product sync: launch moved to 12 May","Thu 11:00 am"],
+    ["/icons/googledocs.svg","Updated the launch plan, section 3","Thu 2:40 pm"],
+    ["/icons/slack.svg","Agreed vendor B for lead time","Thu 5:05 pm"],
+    ["/icons/linear.svg","Closed: pricing page copy","Fri 9:30 am"]
   ];
   var list=document.getElementById('ctxlist');
   list.innerHTML=ctxEvents.map(function(e){return '<li><img src="'+e[0]+'" alt=""><span>'+e[1]+'</span><time>'+e[2]+'</time></li>'}).join('');
@@ -112,7 +112,7 @@
   function draftGo(){
     var t=[],on=document.getElementById('dOn'),doc=document.getElementById('dDoc'),txt=document.getElementById('dTxt');
     t.push(setTimeout(function(){on.classList.add('show')},300));
-    var end=chips(document.getElementById('dPull'),[["icons/gmail.svg","Client thread"],["icons/googlecalendar.svg","Product sync"],["icons/googledocs.svg","Launch plan"]],'',700,450,t);
+    var end=chips(document.getElementById('dPull'),[["/icons/gmail.svg","Client thread"],["/icons/googlecalendar.svg","Product sync"],["/icons/googledocs.svg","Launch plan"]],'',700,450,t);
     setTimeout(function(){doc.classList.add('show');type(txt,"Hi Dana,\nConfirming the launch is now 12 May. We moved it two weeks to finish packaging with our new supplier. Your onboarding call stays on 14 May, and I'll send the updated plan by Friday.\nBest,\nMaya",14)},end+300);
   };
   if(draftEl)onView(draftEl,runDraft,.3);
@@ -271,12 +271,12 @@
     var ais=[].slice.call(arc.querySelectorAll('.ai')),focus=arc.querySelector('.focus'),fimg=document.getElementById('arcFocus'),
         aRead=document.getElementById('arcRead'),aAns=document.getElementById('arcAns'),aq=arc.querySelector('.arcq'),ac=0;
     var data=[
-      ['icons/gmail.svg','Reading Gmail','Did Dana reply about the quote?','Yes, this morning. She accepted $18,400 and asked to start on 2 June.'],
-      ['icons/googlesheets.svg','Reading Sheets','What was Q3 revenue?','$482,300, up 12% on Q2. West was the largest region.'],
-      ['icons/slack.svg','Reading Slack','Which vendor did we pick?','Vendor B, agreed in #ops on Thursday for its shorter lead time.'],
-      ['icons/notion.svg','Reading Notion','Where are the research notes?','In Customer research, updated Monday with five new interviews.'],
-      ['icons/googlecalendar.svg','Reading Calendar','When is the supplier call?','Tomorrow at 10:30 with their operations lead.'],
-      ['icons/linear.svg','Reading Linear','Is the pricing page done?','Yes, Sam closed it Friday. It goes live Tuesday.']
+      ['/icons/gmail.svg','Reading Gmail','Did Dana reply about the quote?','Yes, this morning. She accepted $18,400 and asked to start on 2 June.'],
+      ['/icons/googlesheets.svg','Reading Sheets','What was Q3 revenue?','$482,300, up 12% on Q2. West was the largest region.'],
+      ['/icons/slack.svg','Reading Slack','Which vendor did we pick?','Vendor B, agreed in #ops on Thursday for its shorter lead time.'],
+      ['/icons/notion.svg','Reading Notion','Where are the research notes?','In Customer research, updated Monday with five new interviews.'],
+      ['/icons/googlecalendar.svg','Reading Calendar','When is the supplier call?','Tomorrow at 10:30 with their operations lead.'],
+      ['/icons/linear.svg','Reading Linear','Is the pricing page done?','Yes, Sam closed it Friday. It goes live Tuesday.']
     ];
     var slots=[[10,14,.62,.4],[28,6,.72,.6],[47,8,.84,.85],[64,20,.95,1],[84,52,.2,0]];
     function place(){
