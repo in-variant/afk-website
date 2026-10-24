@@ -1,0 +1,3 @@
+# Runs art direction (original prompts; shared look, our own scenes)
+STYLE = Luminous, airy painterly illustration blending delicate watercolor washes with soft hand-painted anime-inspired detail. High-key sunlit palette of fresh spring greens, sky blue and warm cream, finely detailed leaves and grasses, gentle atmospheric haze, puffy white cumulus clouds, edges dissolving softly into a warm off-white (#FFFDF8). Calm, optimistic, cinematic. No text, no letters, no logos, no people.
+CAPY = an original mascot: a chubby, friendly brown capybara with soft fur, small rounded ears and a calm, content expression, looking toward the viewer

@@ -1,0 +1,370 @@
+<!-- title: Runs: the calm teammate who works with you | desc: Runs gives everyone on your team a capy that remembers their work and answers teammates for them, across email, calendar, docs, meetings and Slack. -->
+
+<header class="hero" id="top">
+  <div class="w">
+    <img class="capy cut" src="img/capy-wave.png" alt="Runs capybara waving">
+    <h1>The calm teammate<br>who works with you</h1>
+    <p class="lead">Runs remembers your work and answers your teammates for you, across email, calendar, docs, meetings and Slack. Nobody waits for a reply.</p>
+    <a class="btn" href="mailto:pranav@invariant-ai.com?subject=Try%20Runs"><img src="img/capy-1.png" alt="">Try Runs</a>
+    <small>Set up for your whole team in a day</small>
+    <div class="chips">
+      <span><svg viewBox="0 0 16 16"><rect x="3" y="7" width="10" height="7" rx="2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>Private per person</span>
+      <span><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M2 8h12M8 2c2 2 2 10 0 12M8 2c-2 2-2 10 0 12"/></svg>Your company domain only</span>
+      <span><svg viewBox="0 0 16 16"><path d="M5 3v10M11 3v10"/></svg>Pause or delete anytime</span>
+      <span><svg viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="8" rx="2"/><path d="M5 14h6M8 11v3"/></svg>Its own cloud machine</span>
+    </div>
+  </div>
+  <div class="stage">
+    <div class="bg"></div>
+    <div class="w">
+      <div class="tabsrow">
+        <div class="seg" id="tabs"><button class="on">Ask</button><button>Stand-ups</button><button>Handover</button></div>
+        <p id="cap">Ask a teammate's capy. It answers from their work.</p>
+      </div>
+      <div class="win">
+        <div class="bar"><i></i><i></i><i></i><span>tryruns.com</span></div>
+        <div class="app">
+          <aside class="side">
+            <span class="mono">Capys</span>
+            <a class="on"><img src="img/capy-1.png" alt="">Sam</a>
+            <a><img src="img/capy-notes.png" alt="">Team</a>
+            <a><img src="img/capy-wave.png" alt="">Maya</a>
+            <span class="mono" style="margin-top:22px">Recent</span>
+            <a>Q3 budget</a><a>Monday stand-up</a><a>Supplier choice</a><a>Launch date</a>
+          </aside>
+          <div class="main">
+            <div class="q" id="q"></div>
+            <div class="who"><img id="whoimg" src="img/capy-1.png" alt=""><span class="eyebrow" id="who"></span></div>
+            <div class="pull" id="pull"></div>
+            <div class="ans" id="ans"></div>
+            <div class="compose">Ask anyone's capy<b><svg viewBox="0 0 16 16"><path d="M8 13V3M3 8l5-5 5 5"/></svg></b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="used">
+  <span class="mono">Used by people from</span>
+  <div class="marquee"><div class="track">
+    <div class="set">
+      <img src="logos/google.svg" alt="Google" class="h26">
+      <img src="logos/microsoft.svg" alt="Microsoft">
+      <img src="logos/stanford.svg" alt="Stanford">
+      <img src="logos/cmu.svg" alt="Carnegie Mellon University" class="h26">
+      <span class="wm yc"><img src="logos/yc.svg" alt="">Combinator</span>
+      <img src="logos/usc.svg" alt="University of Southern California">
+      <span class="wm ef">Entrepreneurs First</span>
+      <img src="logos/wbd.svg" alt="Warner Bros. Discovery" class="h40">
+      <span class="wm ar">Artisan</span>
+      <span class="wm tp">Transpose</span>
+    </div>
+    <div class="set" aria-hidden="true">
+      <img src="logos/google.svg" alt="" class="h26">
+      <img src="logos/microsoft.svg" alt="">
+      <img src="logos/stanford.svg" alt="">
+      <img src="logos/cmu.svg" alt="" class="h26">
+      <span class="wm yc"><img src="logos/yc.svg" alt="">Combinator</span>
+      <img src="logos/usc.svg" alt="">
+      <span class="wm ef">Entrepreneurs First</span>
+      <img src="logos/wbd.svg" alt="" class="h40">
+      <span class="wm ar">Artisan</span>
+      <span class="wm tp">Transpose</span>
+    </div>
+  </div></div>
+</section>
+
+<section class="pipe" id="how"><div class="w">
+  <div class="head rv">
+    <span class="eyebrow">How it works</span>
+    <h2>Your work becomes context</h2>
+    <p class="lead">As you work, your capy picks up what happens in the tools you connect. It turns that into a running memory of what you did, what was decided and why, so it can answer for you.</p>
+  </div>
+  <div class="flow rv" id="flow">
+    <svg class="wires" id="wires" aria-hidden="true"></svg>
+    <div class="srcs" id="srcs">
+      <div class="s"><span class="ic"><img src="icons/gmail.svg" alt=""></span><div><b>Email</b><small>Sent the Q3 budget to Finance</small></div><i class="live"></i></div>
+      <div class="s"><span class="ic"><img src="icons/googlecalendar.svg" alt=""></span><div><b>Meetings</b><small>Product sync, 30 min</small></div><i class="live"></i></div>
+      <div class="s"><span class="ic"><img src="icons/googledocs.svg" alt=""></span><div><b>Docs</b><small>Edited the launch plan</small></div><i class="live"></i></div>
+      <div class="s"><span class="ic"><img src="icons/slack.svg" alt=""></span><div><b>Slack</b><small>Agreed vendor B in #ops</small></div><i class="live"></i></div>
+      <div class="s"><span class="ic"><img src="icons/linear.svg" alt=""></span><div><b>Tasks</b><small>Closed 3, opened 1</small></div><i class="live"></i></div>
+    </div>
+    <div class="ctxbox" id="ctxbox">
+      <div class="top"><img class="cut" src="img/capy-desk.png" alt=""><div><b>Maya's context</b><span class="mono" style="color:var(--mute)">Updated just now</span></div></div>
+      <ul id="ctxlist"></ul>
+      <div class="und" id="und"><span class="mono">Understood</span>Maya owns the Q3 budget and the launch plan. Launch moved to 12 May, and vendor B was chosen for lead time.</div>
+    </div>
+    <div class="outs">
+      <div class="o"><span class="mono">Sam asks</span><p>Did the Q3 budget go to Finance?</p><p>Yes, Tuesday at 4:12 pm, with the hiring line updated.</p></div>
+      <div class="o"><span class="mono">Leo asks</span><p>When is launch now?</p><p>12 May. It moved in Thursday's product sync.</p></div>
+      <div class="o"><span class="mono">Stand-up, 8:00 am</span><p>Maya: launch plan review, vendor B contract.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="cloud" id="features">
+  <svg class="rays" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
+    <g stroke="#E3E7F3" stroke-width="1" fill="none">
+      <path d="M600 400L120 110"/><path d="M600 400L430 40"/><path d="M600 400L1080 110"/><path d="M600 400L80 520"/><path d="M600 400L1120 520"/>
+      <path d="M600 400L380 770"/><path d="M600 400L840 770"/><path d="M600 400L0 300"/><path d="M600 400L1200 300"/><path d="M600 400L820 40"/><path d="M600 400L230 800"/><path d="M600 400L990 800"/>
+    </g>
+  </svg>
+  <div class="ctx c1"><div class="top"><img src="icons/googledrive.svg" alt="">Sheets</div><img class="th" src="img/t-sheet.jpg" alt=""><p>Q3 budget, v6</p><em>"Is this the final one?"</em></div>
+  <div class="ctx c2"><div class="top"><img src="icons/gmail.svg" alt="">Gmail</div><p>Signed agreement back to the client's legal team</p></div>
+  <div class="ctx c8 ask"><p>What did Maya send Finance?</p><em>Answered in 4 s</em></div>
+  <div class="ctx c3"><div class="top"><img src="icons/googledocs.svg" alt="">Slides</div><img class="th" src="img/t-deck.jpg" alt=""><p>Spring launch deck</p></div>
+  <div class="ctx c4"><div class="top"><img src="icons/slack.svg" alt="">Slack</div><p>@Maya what time is the supplier call?</p><em>"10:30, agenda in the invite"</em></div>
+  <div class="ctx c5"><div class="top"><img src="icons/notion.svg" alt="">Notion</div><img class="th" src="img/t-research.jpg" alt=""><p>Customer research notes</p></div>
+  <div class="ctx c6"><div class="top"><img src="icons/linear.svg" alt="">Linear</div><img class="th" src="img/t-map.jpg" alt=""><p>Product roadmap, H2</p></div>
+  <div class="ctx c7"><div class="top"><img src="icons/googlecalendar.svg" alt="">Calendar</div><p>Product sync moved launch to 12 May</p></div>
+  <div class="center rv">
+    <span class="eyebrow">Context</span>
+    <h2 style="margin-top:14px">No need to explain yourself</h2>
+    <p class="lead">Your capy already knows the backstory, the file and the decision. Teammates ask a question and get the answer, without you stopping to explain.</p>
+  </div>
+</section>
+
+<section class="feat">
+  <div class="w">
+    <div class="txt rv">
+      <span class="eyebrow">Ask</span>
+      <h2>Answers across all your tools</h2>
+      <p class="lead">Your capy reads your email, calendar, documents and tasks. A teammate asks it and gets the answer, even when you are asleep or on leave.</p>
+      <div class="note"><img class="cut" src="img/capy-1.png" alt=""><div><p>"Where is the latest version of the Q3 budget?" comes back with the file, who changed it last and when it went to Finance.</p><span class="mono">Example</span></div></div>
+      <a class="more" href="/use-cases/">See examples →</a>
+    </div>
+    <div class="vis rv">
+      <div class="orbit">
+        <div class="ring"></div><div class="ring r2"></div>
+        <div class="spin">
+          <span style="--a:0deg"><img src="icons/gmail.svg" alt="Gmail"></span>
+          <span style="--a:72deg"><img src="icons/googlecalendar.svg" alt="Calendar"></span>
+          <span style="--a:144deg"><img src="icons/slack.svg" alt="Slack"></span>
+          <span style="--a:216deg"><img src="icons/notion.svg" alt="Notion"></span>
+          <span style="--a:288deg"><img src="icons/zoom.svg" alt="Zoom"></span>
+        </div>
+        <div class="spin in">
+          <span style="--a:30deg"><img src="icons/googledrive.svg" alt="Drive"></span>
+          <span style="--a:150deg"><img src="icons/linear.svg" alt="Linear"></span>
+          <span style="--a:270deg"><img src="icons/googledocs.svg" alt="Docs"></span>
+        </div>
+        <div class="core"><img class="cut" src="img/capy-1.png" alt="Runs capybara"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feat rev">
+  <div class="w">
+    <div class="txt rv">
+      <span class="eyebrow">Meetings</span>
+      <h2>Never chase meeting notes again</h2>
+      <p class="lead">Connect your meeting notes and your capy keeps what was agreed and who owns what. Anyone who missed the call can just ask.</p>
+      <a class="more" href="/features/#meetings">Learn more →</a>
+    </div>
+    <div class="vis rv">
+      <div class="panel" id="meet">
+        <div class="hd"><h3>Product sync</h3><span class="rec"><i></i>Taking notes</span></div>
+        <div class="mtabs"><span class="on">Notes</span><span>Summary</span><span>Actions</span></div>
+        <div class="bd"><ul class="notes" id="notes">
+          <li class="h">Decisions</li>
+          <li>Launch moves from 28 April to 12 May</li>
+          <li>Vendor B for packaging, lead time under six weeks</li>
+          <li class="h">Actions</li>
+          <li class="act">Maya updates the launch plan by Friday</li>
+          <li class="act">Sam confirms the vendor B contract</li>
+          <li class="act">Leo tells the two pilot customers</li>
+        </ul></div>
+        <img class="peek cut" src="img/capy-notes.png" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feat">
+  <div class="w">
+    <div class="txt rv">
+      <span class="eyebrow">Stand-ups</span>
+      <h2>Stand-ups without the meeting</h2>
+      <p class="lead">Each capy knows what its person is working on. Every morning the team gets a written stand-up, blockers first, and nobody has to write one.</p>
+      <div class="note"><img class="cut" src="img/capy-wave.png" alt=""><div><p>Three people in three time zones read one stand-up before anyone logs on.</p><span class="mono">Example</span></div></div>
+    </div>
+    <div class="vis rv">
+      <div class="panel" id="stand">
+        <div class="hd"><div style="display:flex;align-items:center;gap:10px"><span class="pill b">Daily</span><b style="font-weight:500">Morning stand-up</b></div><span class="pill g">8:00 am</span></div>
+        <div class="bd"><ul class="todo">
+          <li><i class="ck"></i><span>Maya: launch plan review</span><small>Today</small></li>
+          <li><i class="ck"></i><span>Sam: vendor B contract</span><small>Today</small></li>
+          <li><i class="ck"></i><span>Leo: tell pilot customers about 12 May</span><small>Today</small></li>
+          <li><i class="ck"></i><span>Quote waits on the site address</span><small><span class="pill o">Blocker</span></small></li>
+          <li><i class="ck"></i><span>Q3 budget sent to Finance</span><small>Yesterday</small></li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feat rev">
+  <div class="w">
+    <div class="txt rv">
+      <span class="eyebrow">Drafts</span>
+      <h2>From blank page to first draft</h2>
+      <p class="lead">Because your capy knows the context, it drafts the reply, the update or the summary in your words, with the right dates and numbers already in it.</p>
+      <a class="more" href="/use-cases/">See examples →</a>
+    </div>
+    <div class="vis rv">
+      <div class="panel draft" id="draft">
+        <div class="hd"><h3>New draft</h3><span class="pill">Maya's capy</span></div>
+        <div class="bd">
+          <div class="q">Draft a reply to the client confirming the 12 May launch</div>
+          <div class="on" id="dOn">On it. Checking</div>
+          <div class="pull" id="dPull"></div>
+          <div class="doc" id="dDoc"><span class="mono">Draft · Gmail</span><span id="dTxt"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feat">
+  <div class="w">
+    <div class="txt rv">
+      <span class="eyebrow">Handover</span>
+      <h2>Nothing is lost when someone leaves</h2>
+      <p class="lead">When a person goes on leave or moves on, their capy keeps what they knew. The next person asks what was done, why, and where it is.</p>
+      <div class="note"><img class="cut" src="img/capy-notes.png" alt=""><div><p>No handover document to write. Decisions keep their reasons, and new hires get up to speed by asking.</p><span class="mono">Example</span></div></div>
+    </div>
+    <div class="vis rv">
+      <div class="panel" id="hand">
+        <div class="hd"><b style="font-weight:500">New hire, week one</b><span class="pill">Jordan's capy</span></div>
+        <div class="bd"><div class="msgs">
+          <div class="msg"><img src="img/capy-wave.png" alt=""><div><b>You</b><div class="bub"><p>Why did we pick this supplier last year?</p></div></div></div>
+          <div class="msg"><img src="img/capy-1.png" alt=""><div><b>Jordan's capy</b><div class="bub"><p>Only one had a lead time under six weeks, and the other two failed the quality check. The comparison sheet is in Procurement.</p></div></div></div>
+          <div class="msg"><img src="img/capy-wave.png" alt=""><div><b>You</b><div class="bub"><p>Who signed it off?</p></div></div></div>
+          <div class="msg"><img src="img/capy-1.png" alt=""><div><b>Jordan's capy</b><div class="bub"><p>The operations lead, on 14 March. The approval email is attached.</p></div></div></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="banner"><div class="w">
+  <div class="sky rv" id="sky">
+    <div>
+      <span class="eyebrow">Slack</span>
+      <h2 style="margin-top:12px">Ask from where your team already talks</h2>
+      <p class="lead">Tag a teammate and their capy replies in the thread, with files attached. A direct message goes to your own capy.</p>
+    </div>
+    <div class="slack">
+      <div class="hd"><img src="icons/slack.svg" alt="">#general</div>
+      <div class="msgs" id="slackmsgs">
+        <div class="msg"><img src="img/capy-wave.png" alt=""><div><b>Leo</b><div class="bub"><p>@Maya what time is the supplier call tomorrow?</p></div></div></div>
+        <div class="msg" id="sTyping"><img src="img/capy-1.png" alt=""><div><b>Maya's capy</b><div class="bub"><span class="typing"><i></i><i></i><i></i></span></div></div></div>
+        <div class="msg" id="sReply" style="display:none"><img src="img/capy-1.png" alt=""><div><b>Maya's capy</b><div class="bub"><p>10:30 am with their operations lead. The agenda is in the invite, and the last quote is attached.</p></div></div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="dark" id="privacy"><div class="w">
+  <span class="eyebrow">Privacy</span>
+  <h2>A memory this personal has to stay private</h2>
+  <p class="lead">You decide what your capy sees, keeps and forgets.</p>
+  <div class="p4">
+    <div class="rv"><div class="st"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7"/><path d="M5 15L15 5"/></svg><div><b>Only what you connect</b><small>Off by default</small></div></div><h3>You choose what it sees</h3><p>Connect only the tools you want. Nothing is captured that you have not turned on.</p></div>
+    <div class="rv"><div class="st"><svg viewBox="0 0 20 20"><path d="M4 6h12M8 6V4h4v2M6 6l1 10h6l1-10"/></svg><div><b>Delete anything</b><small>In two clicks</small></div></div><h3>Pause or delete</h3><p>Stop capture whenever you like, or remove anything your capy has kept.</p></div>
+    <div class="rv"><div class="st"><svg viewBox="0 0 20 20"><circle cx="10" cy="7" r="3"/><path d="M4 17c1-4 11-4 12 0"/></svg><div><b>Activity reports</b><small>None</small></div></div><h3>It works with you</h3><p>Your capy saves you interruptions. It answers questions about your work, nothing more.</p></div>
+    <div class="rv"><div class="st"><svg viewBox="0 0 20 20"><rect x="3" y="4" width="14" height="9" rx="2"/><path d="M7 16h6"/></svg><div><b>One machine each</b><small>Your domain only</small></div></div><h3>Separate by design</h3><p>Each capy runs on its own private cloud machine, and only your company domain can sign in.</p></div>
+  </div>
+</div></section>
+
+<section class="dev"><div class="w">
+  <div class="rv">
+    <span class="eyebrow">Everywhere</span>
+    <h2>For every device you're on</h2>
+    <p class="lead">Open Runs in any browser, add it to your phone's home screen, or ask from Slack. Speak instead of typing whenever you like.</p>
+    <div class="plat"><span>Web</span><span>iPhone</span><span>Android</span><span>Slack</span><span>Voice</span></div>
+  </div>
+  <div class="devvis rv" id="dev">
+    <div class="phone"><div class="scr">
+      <div class="ttl"><img class="cut" src="img/capy-1.png" alt="">Runs</div>
+      <div class="li">Q3 budget<small>Maya · 2h ago</small></div>
+      <div class="li">Launch date<small>Product sync · yesterday</small></div>
+      <div class="li">Supplier choice<small>Jordan · last week</small></div>
+      <div class="rep" id="pRep">12 May. It moved in Thursday's product sync, and the plan is updated.</div>
+      <div class="ask" id="pAsk"></div>
+    </div></div>
+  </div>
+</div></section>
+
+<section class="cases" id="examples"><div class="w">
+  <div class="head rv">
+    <span class="eyebrow">Examples</span>
+    <h2>What teams ask their capys</h2>
+  </div>
+  <div class="cgrid">
+    <article class="case rv"><span class="eyebrow">Sales</span><div class="q">What did we promise this customer on the last call?</div><p>The account owner's capy pulls the call notes, the follow-up email and the pricing sheet they sent, so the next rep picks up the deal without starting over.</p><div class="by"><img src="img/capy-1.png" alt="">Account handoff</div></article>
+    <article class="case rv"><span class="eyebrow">Finance</span><div class="q">Is this the final version of the Q3 budget?</div><p>It finds the latest file, who changed it last and when it went to Finance. No hunting through folders.</p><div class="by"><img src="img/capy-wave.png" alt="">Month-end close</div></article>
+    <article class="case rv"><span class="eyebrow">Engineering</span><div class="q">Why did we turn off the old sync job?</div><p>The engineer's capy finds the thread, the decision and the ticket, even though the engineer is nine time zones away and asleep.</p><div class="by"><img src="img/capy-notes.png" alt="">On-call context</div></article>
+    <article class="case rv"><span class="eyebrow">Operations</span><div class="q">What is everyone working on today?</div><p>A written stand-up from everyone's tasks and calendars, blockers first, before the day starts.</p><div class="by"><img src="img/capy-1.png" alt="">Daily stand-up</div></article>
+    <article class="case rv"><span class="eyebrow">Founders</span><div class="q">Draft this month's investor update.</div><p>The capy gathers the numbers, launches and hires from the month and writes a first draft in the founder's voice.</p><div class="by"><img src="img/capy-desk.png" alt="">Investor updates</div></article>
+    <article class="case rv"><span class="eyebrow">Agencies</span><div class="q">Where are we with this client?</div><p>When a project lead goes on leave, their capy answers what was agreed, what is due and where every file lives.</p><div class="by"><img src="img/capy-wave.png" alt="">Client handover</div></article>
+  </div>
+</div></section>
+
+<section class="price" id="pricing"><div class="w">
+  <span class="eyebrow">Pricing</span>
+  <h2>Simple pricing per person</h2>
+  <p class="lead">Start with one capy or give one to the whole team.</p>
+  <div class="plans rv">
+    <div class="plan">
+      <span class="mono">Starter</span>
+      <div class="amt">$20<small>/ person / month</small></div>
+      <div class="for">Your own capy, for you and a few teammates.</div>
+      <ul><li>Your own capy</li><li>Gmail, Calendar and Drive</li><li>Ask on web and phone</li><li>Meeting notes memory</li><li>Pause or delete anytime</li></ul>
+      <a class="btn ghost" href="mailto:pranav@invariant-ai.com?subject=Runs%20Starter">Get started</a>
+    </div>
+    <div class="plan hi">
+      <span class="badge">Most teams</span>
+      <span class="mono">Team</span>
+      <div class="amt">$50<small>/ person / month</small></div>
+      <div class="for">A capy for everyone, working together.</div>
+      <ul><li>Everything in Starter</li><li>Ask any teammate's capy</li><li>Slack answers with files</li><li>Daily written stand-ups</li><li>Drafts with your context</li><li>Handover when people leave</li></ul>
+      <a class="btn light" href="mailto:pranav@invariant-ai.com?subject=Runs%20Team">Start with your team</a>
+    </div>
+    <div class="plan">
+      <span class="mono">Enterprise</span>
+      <div class="amt">Custom</div>
+      <div class="for">For larger teams with their own rules.</div>
+      <ul><li>Everything in Team</li><li>Your own cloud account</li><li>Custom capture rules</li><li>Single sign-on</li><li>Dedicated onboarding</li></ul>
+      <a class="btn ghost" href="mailto:pranav@invariant-ai.com?subject=Runs%20Enterprise">Talk to us</a>
+    </div>
+  </div>
+</div></section>
+
+<section class="faq" id="faq"><div class="w">
+  <div><span class="eyebrow">FAQ</span><h2>Frequently asked questions</h2></div>
+  <div class="list">
+    <details><summary>What is Runs?</summary><p>Runs gives each person on your team a capy: a helper that remembers their work from email, calendar, documents, meetings and tasks, and answers teammates for them.</p></details>
+    <details><summary>What does my capy see?</summary><p>Only the tools you connect. You can pause it whenever you like and delete anything it has kept.</p></details>
+    <details><summary>Can my manager see what I do?</summary><p>No. Your capy answers questions about your work when a teammate asks. There are no activity reports or screen time dashboards.</p></details>
+    <details><summary>Who can ask my capy questions?</summary><p>Only people signed in with your company's domain. Every answer shows where it came from.</p></details>
+    <details><summary>How long does setup take?</summary><p>About ten minutes per person. We set it up with your team on a call.</p></details>
+    <details><summary>What happens when someone leaves?</summary><p>Their capy keeps what they knew, so the next person can ask what was done, why, and where it is.</p></details>
+    <details><summary>Which tools does it work with?</summary><p>Gmail, Google Calendar, Google Drive, meeting notes and Slack today, with Notion and Linear next. Tell us what else your team uses.</p></details>
+  </div>
+</div></section>
+
+<section class="cta"><div class="w">
+  <div class="ctab rv">
+    <div class="txt">
+      <span class="eyebrow">Get started</span>
+      <h2 style="margin-top:14px">Meet your capy</h2>
+      <p class="lead">A calm teammate for everyone on your team, set up in a day.</p>
+      <a class="btn" href="mailto:pranav@invariant-ai.com?subject=Try%20Runs"><img src="img/capy-1.png" alt="">Try Runs</a>
+      <small>Starts at $20 per person a month</small>
+    </div>
+  </div>
+</div></section>
+
