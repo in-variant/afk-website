@@ -4,8 +4,10 @@ Marketing site for Runs, at https://tryruns.com. Everyone on a team gets a capy,
 that remembers their work and answers teammates for them. The capybara is the mascot.
 
 ## Layout
-- `public/index.html`: the whole site, one static page (inline CSS, Google Fonts Newsreader + Inter)
-- `public/capy.svg`: the capybara mark, also the favicon
+- `public/index.html`: the whole site, one static page, inline CSS and JS
+- `public/kit/fonts`: Invariant brand faces (D-DIN, Geist, Geist Mono, JetBrains Mono) from the web-ui kit
+- `public/img`: capybara mascot and painted scenes, generated with Gemini (`tools/gen_image.py`)
+- `public/logos`, `public/icons`: customer logos (Wikimedia Commons) and integration icons (simple-icons, CC0)
 - `public/CNAME`: custom domain for GitHub Pages
 
 ## Local preview
