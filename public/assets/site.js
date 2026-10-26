@@ -3,6 +3,18 @@
   var nav=document.getElementById('nav');
   addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>8)},{passive:true});
 
+  /* light / dark toggle; the head script already applied the saved or system theme */
+  var root=document.documentElement,themeBtn=document.getElementById('theme');
+  function label(){themeBtn.setAttribute('aria-label',root.dataset.theme==='dark'?'Switch to light mode':'Switch to dark mode')}
+  if(themeBtn){label();themeBtn.addEventListener('click',function(){
+    root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';label();
+    try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}
+  })}
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
+    var saved;try{saved=localStorage.getItem('theme')}catch(x){}
+    if(!saved){root.dataset.theme=e.matches?'dark':'light';themeBtn&&label()}
+  });
+
   function onView(el,fn,th){
     if(!el)return;
     var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fn(e.target);o.unobserve(e.target)}})},{threshold:th||.25});
@@ -72,14 +84,14 @@
     document.querySelectorAll('#srcs .s').forEach(function(s,i){
       var r=s.getBoundingClientRect(),x=r.right-fr.left,y=r.top-fr.top+r.height/2,mx=(x+tx)/2;
       var d='M'+x+' '+y+' C'+mx+' '+y+' '+mx+' '+ty+' '+tx+' '+ty;
-      html+='<path d="'+d+'" stroke="#D9E0F4" stroke-width="1.2" fill="none"/>';
+      html+='<path d="'+d+'" style="stroke:var(--hair)" stroke-width="1.2" fill="none"/>';
       html+='<circle r="3.5" fill="#022FDB"><animateMotion dur="'+(2.4+i*.35)+'s" repeatCount="indefinite" begin="'+(i*.5)+'s" path="'+d+'"/></circle>';
     });
     var ox=cb.right-fr.left;
     document.querySelectorAll('.outs .o').forEach(function(o,i){
       var r=o.getBoundingClientRect(),x=r.left-fr.left,y=r.top-fr.top+r.height/2,mx=(ox+x)/2;
       var d='M'+ox+' '+ty+' C'+mx+' '+ty+' '+mx+' '+y+' '+x+' '+y;
-      html+='<path d="'+d+'" stroke="#D9E0F4" stroke-width="1.2" fill="none" stroke-dasharray="4 4"/>';
+      html+='<path d="'+d+'" style="stroke:var(--hair)" stroke-width="1.2" fill="none" stroke-dasharray="4 4"/>';
       html+='<circle r="3" fill="#FB4D03"><animateMotion dur="2.8s" repeatCount="indefinite" begin="'+(1+i*.7)+'s" path="'+d+'"/></circle>';
     });
     wires.innerHTML=html;

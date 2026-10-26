@@ -8,10 +8,11 @@
 <meta property="og:title" content="AFK: the teammate who knows what you're working on">
 <meta property="og:description" content="AFK gives everyone on your team a Kip, a teammate that knows what they are working on and answers for them while they are away.">
 <meta property="og:image" content="https://tryafk.com/img/cta-banner.jpg">
+<script>try{var t=localStorage.getItem('theme')}catch(e){}document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')</script>
 <link rel="icon" href="/img/capy-icon.png">
 <link rel="preload" href="/kit/fonts/D-DIN.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/kit/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css?v=69593db8ef">
+<link rel="stylesheet" href="/assets/site.css?v=56b5b0dd4e">
 </head>
 <body class="page-index">
 
@@ -24,7 +25,10 @@
     <li><a href="/privacy/" data-nav="privacy">Privacy</a></li>
     <li><a href="/pricing/" data-nav="pricing">Pricing</a></li>
   </ul>
-  <a class="btn" href="https://storage.googleapis.com/afk-desktop-releases/stable/Kip-latest-arm64.dmg">Try AFK</a>
+  <div class="nav-r">
+    <button class="theme" id="theme" type="button" aria-label="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    <a class="btn" href="https://storage.googleapis.com/afk-desktop-releases/stable/Kip-latest-arm64.dmg">Try AFK</a>
+  </div>
 </div></nav>
 
 <header class="hero" id="top">
@@ -510,6 +514,6 @@
   <div class="land"><span>AFK</span></div>
 </footer>
 
-<script src="/assets/site.js?v=bc8e5c8bad"></script>
+<script src="/assets/site.js?v=063929dce4"></script>
 </body>
 </html>
