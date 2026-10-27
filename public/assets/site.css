@@ -40,6 +40,7 @@ h3{font-size:21px;line-height:1.2}
 .btn.ghost:hover{box-shadow:inset 0 0 0 1px var(--blue)}
 .btn.light{background:#fff;color:var(--navy)}
 .btn img{width:24px;height:24px;border-radius:50%;object-fit:cover;object-position:50% 30%;background:var(--card)}
+.btn svg.apple{width:14px;height:16px;fill:currentColor;flex:none;margin-top:-2px}
 .more{display:inline-flex;align-items:center;gap:8px;margin-top:26px;height:38px;padding:0 16px;border-radius:var(--pill);box-shadow:inset 0 0 0 1px var(--hair);font-family:var(--jmono);font-size:12px;text-transform:uppercase;background:var(--card)}
 .more:hover{box-shadow:inset 0 0 0 1px var(--blue);color:var(--blue)}
 
@@ -333,6 +334,7 @@ footer .legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px
 
 @media(max-width:1000px){
   .nav ul{display:none}
+  .nav .btn .ns{display:none}
   .feat .w,.dev .w,.faq .w{grid-template-columns:1fr;gap:40px}
   .feat.rev .txt{order:0}
   .flow{grid-template-columns:1fr;gap:20px}.flow svg.wires{display:none}
