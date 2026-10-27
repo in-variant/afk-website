@@ -3,18 +3,6 @@
   var nav=document.getElementById('nav');
   addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>8)},{passive:true});
 
-  /* light / dark toggle; the head script already applied the saved or system theme */
-  var root=document.documentElement,themeBtn=document.getElementById('theme');
-  function label(){themeBtn.setAttribute('aria-label',root.dataset.theme==='dark'?'Switch to light mode':'Switch to dark mode')}
-  if(themeBtn){label();themeBtn.addEventListener('click',function(){
-    root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';label();
-    try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}
-  })}
-  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    var saved;try{saved=localStorage.getItem('theme')}catch(x){}
-    if(!saved){root.dataset.theme=e.matches?'dark':'light';themeBtn&&label()}
-  });
-
   function onView(el,fn,th){
     if(!el)return;
     var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fn(e.target);o.unobserve(e.target)}})},{threshold:th||.25});
